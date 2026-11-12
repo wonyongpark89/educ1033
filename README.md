@@ -2,17 +2,20 @@
 
 Slide decks for EDUC1033, served with GitHub Pages.
 
-| Week | Topic | Deck | PDF |
+| Week | Topic | Lecture | Seminar |
 |---|---|---|---|
-| 9 | The teaching profession under pressure | [w9/](https://www.wonyongpark.com/educ1033/w9/) | [PDF](w9/EDUC1033-W9-Teaching-profession-slides.pdf) |
+| 9 | The teaching profession under pressure | [slides](https://www.wonyongpark.com/educ1033/w9/lecture/) · [PDF](w9/EDUC1033-W9-Lecture-slides.pdf) | [slides](https://www.wonyongpark.com/educ1033/w9/seminar/) · [PDF](w9/EDUC1033-W9-Seminar-slides.pdf) |
 
 ## Editing a deck
 
-Each week's source lives in `<week>/src/deck.html`, with images in `<week>/src/img/`.
-Build the self-contained `index.html` (images inlined, slides numbered) with:
+Each week has a lecture and a seminar deck. Sources live in `<week>/src/lecture.html` and
+`<week>/src/seminar.html`; shared head, styles and script are in `<week>/src/_head.html` and
+`_tail.html`, images in `src/img/` and icons in `src/icons/`. Build the self-contained decks
+(images and icons inlined, slides numbered) into `<week>/lecture/` and `<week>/seminar/` with:
 
 ```
-python tools/build.py w9
+python tools/build.py w9            # both decks
+python tools/build.py w9 seminar    # one deck
 ```
 
 In the deck: arrow keys, Space or click to move; F full screen; O overview; S speaker notes.
