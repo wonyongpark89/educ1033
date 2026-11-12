@@ -29,6 +29,15 @@
         ],
         "createdAt": "2026-11-12T11:01:32.433Z",
         "reason": "User's own established deck style (wonyongpark.com/educ3028-w8 .card border-top:3px), pinned in the brief"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "w9/src/seminar.html"
+        ],
+        "createdAt": "2026-11-12T13:01:09.716Z",
+        "reason": "False positive: flagged text sits on dark .slide.dark backgrounds (#123847), verified in rendered PDF; checker assumed white"
       }
     ]
   }
