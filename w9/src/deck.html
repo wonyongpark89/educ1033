@@ -228,6 +228,12 @@ table.tb th.n{text-align:right}
 .tl .tx{font-size:20px;line-height:1.45;color:var(--ink2)}
 .tl .tx b{color:var(--ink);font-weight:650}
 .tl::before{content:"";position:absolute;left:183px;top:14px;bottom:14px;width:2px;background:var(--rule)}
+/* activity header */
+.ahead{display:flex;align-items:center;gap:28px}
+.ahead .an{font:500 34px/1 var(--serif);color:#F3E1D9;padding-right:28px;border-right:1px solid #2F5868}
+.ahead .am{display:inline-flex;align-items:center;gap:9px;font:500 19px/1 var(--sans);color:#BFD3D9}
+.ahead .am svg{width:21px;height:21px;color:#9CC3CF}
+.act .qs .q:first-child{padding-top:0}
 </style>
 
 </head>
@@ -240,7 +246,7 @@ table.tb th.n{text-align:right}
   <div style="flex:1;padding:0 64px 0 104px;display:flex;flex-direction:column;justify-content:center">
     <h1 style="font:500 78px/1.02 var(--serif);letter-spacing:-.024em;margin:0 0 28px;text-wrap:balance">The teaching profession under pressure</h1>
     <p style="font:italic 400 32px/1.3 var(--serif);color:#BFD3D9;margin-bottom:64px">Global challenges and the case of England</p>
-    <div style="display:flex;gap:30px;align-items:center;font-size:23px;padding-top:28px;border-top:1px solid #2F5868">
+    <div style="display:flex;gap:30px;align-items:center;font-size:23px">
       <span style="font-weight:600">Dr Wonyong Park</span>
       <span style="width:1px;height:24px;background:#5E8796"></span>
       <span style="color:#BFD3D9">EDUC1033 Week 9</span>
@@ -266,7 +272,7 @@ table.tb th.n{text-align:right}
 
 <!-- 3 Activity 1 -->
 <section class="frame"><div data-n class="slide dark act">
-  <div class="lab">Activity 1 · in pairs, 3 minutes</div>
+  <div class="ahead"><span class="an">Activity 1</span><span class="am">{{ICON:users}}In pairs</span><span class="am">{{ICON:clock}}3 minutes</span></div>
   <div class="qs">
     <p class="q">Name one reason someone might want to become a teacher.</p>
     <p class="q" data-s="1">Name one condition that would help them stay in teaching for ten years.</p>
@@ -371,7 +377,7 @@ table.tb th.n{text-align:right}
     </div>
     <div class="side"><b>Contextual factors</b><span>school and classroom characteristics</span></div>
   </div>
-  <p class="src">Redrawn from OECD (2025), <i>Results from TALIS 2024</i>, Figure 1, p. 24, after Bakker &amp; Demerouti (2017) and Granziera et al. (2020). © OECD, CC BY 4.0.</p>
+  <p class="src">OECD (2025), <i>Results from TALIS 2024</i>, Figure 1, p. 24, after Bakker &amp; Demerouti (2017) and Granziera et al. (2020). © OECD, CC BY 4.0.</p>
   <aside class="notes">Demands require sustained effort; resources help teachers meet them. The model connects both to wellbeing and satisfaction, and through these to career intentions: how long teachers expect to stay. Example from the report: planning a lesson for pupils with diverse needs is manageable with a specialist colleague, good materials and protected time; without them it extends into evenings. The framework points to staffing, time, leadership and rules as well as individual qualities.</aside>
 </div></section>
 
@@ -698,13 +704,12 @@ table.tb th.n{text-align:right}
 
 <!-- 26 Activity 2 -->
 <section class="frame"><div data-n class="slide dark act">
-  <div class="lab">Activity 2 · in small groups, 6 minutes</div>
+  <div class="ahead"><span class="an">Activity 2</span><span class="am">{{ICON:users}}Small groups</span><span class="am">{{ICON:clock}}6 minutes</span></div>
   <div class="qs">
     <p class="q">What did the teacher in the video describe about their workload?</p>
-    <p class="q" data-s="1">Which parts of their account match the survey and interview evidence we have seen?</p>
-    <p class="q" data-s="2">What can one personal account tell us, and what can it not tell us?</p>
+    <p class="q" data-s="1">What could be done to help teachers like this stay in teaching?</p>
   </div>
-  <aside class="notes">Link the account to the job demands–resources framework (demands rising, resources such as time and support) and to the Working Lives figures (74% of leavers citing workload; 26% finding workload acceptable). A single account shows how pressures are experienced and connected; surveys show how widespread they are.</aside>
+  <aside class="notes">Link the account to the job demands–resources framework (demands rising, resources such as time and support) and to the Working Lives figures (74% of leavers citing workload; 26% finding workload acceptable). For the second question, draw on the retention measures and leaver evidence: workload, flexibility, support from leaders, pay.</aside>
 </div></section>
 
 <!-- 27 Pay -->
@@ -800,7 +805,7 @@ table.tb th.n{text-align:right}
 
 <!-- 32 Activity 3 -->
 <section class="frame"><div data-n class="slide dark act">
-  <div class="lab">Activity 3 · in small groups, 8 minutes</div>
+  <div class="ahead"><span class="an">Activity 3</span><span class="am">{{ICON:users}}Small groups</span><span class="am">{{ICON:clock}}8 minutes</span></div>
   <div class="qs">
     <p style="font:500 38px/1.28 var(--serif);margin:0 0 52px;text-wrap:pretty">Choose two of these priorities. For each, explain which problem it addresses and find one piece of evidence from today that relates to it.</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px" data-s="1">
@@ -810,7 +815,6 @@ table.tb th.n{text-align:right}
       <div style="border-top:2px solid #E59C82;padding-top:20px"><p style="font:500 28px/1.3 var(--serif)">Reduced administration and more flexibility</p></div>
     </div>
   </div>
-  <p class="meta">The options do not cost the same. Note one difficulty in putting each choice into practice.</p>
   <aside class="notes">This follows the classroom exercise in report section 19. Examples of relevant evidence: experienced teachers' real pay at −8.6% against 2010/11; 25% of leavers citing pay; 74% citing workload; 26% finding workload acceptable; bursaries of up to £31,000.</aside>
 </div></section>
 
@@ -821,21 +825,21 @@ table.tb th.n{text-align:right}
     <div style="flex:1">
       <div class="ihd" style="padding-bottom:12px;border-bottom:2px solid var(--accent);margin-bottom:18px"><span class="disc sm">{{ICON:trending-up}}</span><p style="font:600 25px/1.3 var(--serif);color:var(--accent)">Indicators that have improved</p></div>
       <ul class="b" style="font-size:21.5px">
-        <li>Postgraduate ITT recruitment: primary 128%, secondary 89% of target in 2025/26</li>
-        <li>Full-time teachers' reported hours: 51.2 to 50.1</li>
-        <li>Workload rated acceptable: 17% (2022) to 26% (2025)</li>
-        <li>Starting salaries back to their 2010/11 real level</li>
-        <li>4,654 additional FTE towards the 6,500 pledge</li>
+        <li>Postgraduate ITT recruitment: primary <b>128%</b>, secondary <b>89%</b> of target in 2025/26</li>
+        <li>Full-time teachers' reported hours: <b>51.2 to 50.1</b></li>
+        <li>Workload rated acceptable: <b>17%</b> (2022) to <b>26%</b> (2025)</li>
+        <li>Starting salaries <b>back to their 2010/11 real level</b></li>
+        <li><b>4,654</b> additional FTE towards the 6,500 pledge</li>
       </ul>
     </div>
     <div style="flex:1" data-s="1">
       <div class="ihd" style="padding-bottom:12px;border-bottom:2px solid var(--rust);margin-bottom:18px"><span class="disc sm r">{{ICON:triangle-alert}}</span><p style="font:600 25px/1.3 var(--serif);color:var(--rust)">Pressures that continue</p></div>
       <ul class="b" style="font-size:21.5px;--dot:var(--rust)">
-        <li>Subjects below target, e.g. business studies 30%, physics 78%, computing 81%</li>
-        <li>67.4% of the 2020 cohort in state-funded schools after five years</li>
-        <li>About three in four do not find workload acceptable</li>
-        <li>Experienced teachers' real pay 8.6% below 2010/11</li>
-        <li>74% of leavers cite workload; 73% cite stress</li>
+        <li>Subjects below target, e.g. business studies <b>30%</b>, physics <b>78%</b>, computing <b>81%</b></li>
+        <li><b>67.4%</b> of the 2020 cohort in state-funded schools after five years</li>
+        <li>About <b>three in four</b> do not find workload acceptable</li>
+        <li>Experienced teachers' real pay <b>8.6% below</b> 2010/11</li>
+        <li><b>74%</b> of leavers cite workload; <b>73%</b> cite stress</li>
       </ul>
     </div>
   </div>
@@ -867,31 +871,6 @@ table.tb th.n{text-align:right}
     </div>
   </div>
   <aside class="notes">This mirrors the final task in the report and can be used as an exit ticket.</aside>
-</div></section>
-
-<!-- 35 References -->
-<section class="frame"><div data-n class="slide" style="padding-top:38px">
-  <h1 class="t" style="font-size:34px;margin-bottom:20px">References</h1>
-  <div class="row" style="gap:48px;font-size:16px;line-height:1.45;color:var(--ink2)">
-    <div style="flex:1;display:grid;gap:11px;align-content:start">
-      <p>Department for Education. (2026a). <i>School workforce in England: Reporting year 2025</i>. Explore Education Statistics.</p>
-      <p>Department for Education. (2026b). <i>6,500 additional teachers delivery plan</i> (CP 1508-II). GOV.UK.</p>
-      <p>Department for Education. (n.d.). <i>How to become a teacher</i>. Get Into Teaching. Retrieved 11 November 2026.</p>
-      <p>Ellis, V., &amp; Childs, A. (2024). Introducing the crisis: The state, the market, the universities and teacher education in England. In V. Ellis (Ed.), <i>Teacher education in crisis</i> (pp. 1–26). Bloomsbury Academic.</p>
-      <p>IFF Research &amp; UCL Institute of Education. (2025). <i>Working lives of teachers and leaders: Wave 4 summary report</i>. DfE.</p>
-      <p>IFF Research &amp; UCL Institute of Education. (2026). <i>Working lives of teachers and leaders: Qualitative insight into experiences of leavers and those considering leaving the English state school sector</i>. DfE.</p>
-      <p>Labour Party. (2024). <i>Change: Labour Party manifesto 2024</i>.</p>
-    </div>
-    <div style="flex:1;display:grid;gap:11px;align-content:start">
-      <p>Long, R., &amp; Bridges, E. (2026, February 2). <i>Teacher recruitment and retention in England</i> (Research Briefing 07222). House of Commons Library.</p>
-      <p>National Audit Office. (2025, April 30). <i>Government's 6,500-teacher pledge faces uncertainties as student numbers surge</i>. NAO.</p>
-      <p>OECD. (2025). <i>Results from TALIS 2024: The state of teaching</i>. OECD Publishing. https://doi.org/10.1787/90df6235-en</p>
-      <p>UNESCO &amp; International Task Force on Teachers for Education 2030. (2024). <i>Global report on teachers: Addressing teacher shortages and transforming the profession</i>. UNESCO.</p>
-      <p>Worth, J., &amp; Scott, M. (2026). <i>The school teacher labour market in England: Annual report 2026</i>. NFER.</p>
-      <p style="margin-top:6px;padding-top:12px;border-top:1px solid var(--rule);font-size:14.5px">Videos: BBC Teach, <i>Confessions of a Teacher: Workload</i>, YouTube; Sky News, <i>Students say they are 'falling behind' due to chronic teacher shortages</i>, YouTube. Images, Wikimedia Commons: Dobrislava (CC BY-SA 4.0); Darklanlan (CC0); Ministry of Information Photo Division (public domain); Fortepan 3612 (public domain); Julian Herzog (CC BY 4.0). Icons: Lucide (ISC licence). OECD figures CC BY 4.0; DfE figures Crown copyright, OGL v3.0; NFER chart extracts reproduced for teaching.</p>
-    </div>
-  </div>
-  <aside class="notes">Full URLs and reading guidance are in the Week 9 report.</aside>
 </div></section>
 
 </main>
