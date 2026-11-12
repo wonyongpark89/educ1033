@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teaching Under Pressure</title>
+<meta name="description" content="EDUC1033 Week 9 lecture: the teaching profession under pressure, global challenges and the case of England.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5F0; --plate:#FFFFFF; --ink:#1B2328; --ink2:#4A555B; --rule:#D6D1C6;
+  --panel:#ECE9E1; --accent:#1D5266; --accent-d:#123847; --tint:#DDE8EB; --sea:#D3E3E8;
+  --rust:#A3452B; --rust-d:#7E321E; --rust-t:#F3E1D9; --gold:#93701D; --gold-t:#F1E8D2; --slate:#5D6970; --slate-t:#E3E6E7;
+  --serif:"Newsreader", Georgia, serif; --sans:"Public Sans", "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0E1417;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0}
+.present,.present body{height:100%;overflow:hidden}
+.present .deck{display:block;padding:0;height:100%;position:relative}
+.present .frame{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:none}
+.present .frame.cur{display:block;animation:fadein .28s cubic-bezier(.16,1,.3,1)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.present.idle,.present.idle *{cursor:none!important}
+.frame{width:calc(1280px*var(--s,1));height:calc(720px*var(--s,1));flex:none;box-shadow:0 6px 30px rgba(0,0,0,.35);overflow:hidden}
+.slide{width:1280px;height:720px;transform:scale(var(--s,1));transform-origin:0 0;position:relative;overflow:hidden;
+  background:var(--paper);padding:48px 64px 50px;display:flex;flex-direction:column}
+.slide::after{content:attr(data-n);position:absolute;right:28px;bottom:16px;font:500 13px/1 var(--sans);color:var(--ink2);font-variant-numeric:tabular-nums}
+.slide.dark::after{color:#9CC3CF}
+/* navigation controller */
+.nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:4px;opacity:0;transition:opacity .25s;z-index:20}
+.navshow .nav,.nav:hover,.nav:focus-within{opacity:1}
+.nav button{width:46px;height:40px;border:0;border-radius:3px;background:rgba(14,20,23,.86);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.nav button:hover{background:var(--accent)}
+.nav button:focus-visible{outline:2px solid #9CC3CF;outline-offset:2px}
+.nav button:disabled{opacity:.35;cursor:default;background:rgba(14,20,23,.86)}
+.nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav .sp{min-width:86px;padding:0 12px;border-radius:3px;display:grid;place-items:center;background:rgba(14,20,23,.86);color:#C9D6DB;font:600 15px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.present.idle .nav:not(:hover){opacity:0}
+.ov .deck{flex-direction:row;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:22px;padding:36px 28px 90px}
+.ov .frame{cursor:pointer;box-shadow:0 0 0 1px #3A4A51}
+.ov .frame:hover{box-shadow:0 0 0 2px #9CC3CF}
+.ov .frame.cur{box-shadow:0 0 0 4px #E59C82}
+.hint{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);font:500 13px var(--sans);color:#E7EEF0;background:rgba(14,20,23,.82);padding:8px 14px;border-radius:4px;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap}
+.hint.off{opacity:0}
+/* speaker notes */
+.notes{display:none}
+#spk{position:fixed;left:0;right:0;top:0;max-height:34vh;overflow:auto;background:rgba(14,20,23,.94);color:#E7EEF0;font:16px/1.55 var(--sans);padding:16px 28px 18px;z-index:30;display:none;border-bottom:2px solid var(--rust)}
+#spk.on{display:block}
+#spk b{display:block;font:700 12px/1 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:#E59C82;margin-bottom:8px}
+/* incremental reveal */
+.js [data-s]{opacity:0;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
+.js [data-s].on{opacity:1}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{background:var(--paper)}
+  .deck,.present .deck{display:block;padding:0;height:auto}
+  .frame,.present .frame,.present .frame.cur{display:block!important;position:static;transform:none;animation:none;width:1280px;height:720px;box-shadow:none;break-after:page;page-break-after:always}
+  .present,.present body{height:auto;overflow:visible}
+  .slide{transform:none}
+  .hint,.nav,#spk{display:none!important}
+  .js [data-s]{opacity:1!important;transition:none}
+}
+
+h1.t{font:600 37px/1.12 var(--serif);letter-spacing:-.012em;margin:0 0 20px;text-wrap:balance;max-width:1120px;color:var(--ink)}
+.lead{font-size:21px;line-height:1.45;margin:0 0 24px;max-width:1090px;text-wrap:pretty}
+.lead b{font-weight:650}
+p{margin:0}
+.lab{font:700 12.5px/1 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--accent)}
+.src{position:absolute;left:64px;right:110px;bottom:17px;font-size:12.5px;line-height:1.35;color:var(--ink2)}
+.cap{font-size:13.5px;line-height:1.35;color:var(--ink2);margin-top:8px}
+.mt-auto{margin-top:auto}
+ul.b{margin:0;padding:0;list-style:none;font-size:18px}
+ul.b li{position:relative;padding-left:18px;margin:0 0 12px;line-height:1.42}
+ul.b li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--dot,var(--accent))}
+ul.b li:last-child{margin-bottom:0}
+ul.b b{font-weight:650;color:var(--ink)}
+.row{display:flex;gap:28px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:var(--panel);border-top:3px solid var(--accent);border-radius:0 0 4px 4px;padding:22px 24px 24px}
+.card h2,.card h3{font:650 21px/1.25 var(--sans);margin:10px 0 10px;text-wrap:balance}
+.card p{font-size:17px;line-height:1.48;color:var(--ink2)}
+.card.r{border-top-color:var(--rust)} .card.r .lab{color:var(--rust)}
+.card.g{border-top-color:var(--gold)} .card.g .lab{color:var(--gold)}
+.card.s{border-top-color:var(--slate)} .card.s .lab{color:var(--slate)}
+.num{font:600 34px/1 var(--serif);color:var(--accent)}
+.band{background:var(--accent);color:#fff;font:600 19.5px/1.4 var(--sans);padding:16px 24px;border-radius:4px;text-wrap:pretty}
+.note{background:var(--tint);border-radius:4px;padding:16px 20px;font-size:17px;line-height:1.45;color:var(--accent-d)}
+.note b{font-weight:650}
+.note.r{background:var(--rust-t);color:var(--rust-d)}
+.note.g{background:var(--gold-t);color:#5E4712}
+.photo img{display:block;width:100%;object-fit:cover;border-radius:3px}
+.plate{background:var(--plate);border-radius:4px;box-shadow:0 1px 2px rgba(27,35,40,.08),0 8px 24px rgba(27,35,40,.08);padding:12px}
+.plate img{display:block;width:100%;height:100%;object-fit:contain}
+.grow{flex:1;margin-bottom:24px;align-items:start}
+.grow .card{padding:26px 28px 28px}
+.grow .card h2,.card h3{font-size:24px;margin:14px 0 12px}
+.grow .card p,.grow .card li{font-size:19px;line-height:1.5}
+.lg .rq{padding:17px 0}
+.lg .rq dt{font-size:20px}
+.lg .rq dd{font-size:19.5px}
+.slide.ph::after{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.figure{flex:1;display:flex;align-items:center;justify-content:center;gap:40px;min-height:0}
+.video{position:relative;display:block;width:900px;height:506px;margin:0 auto;border-radius:4px;overflow:hidden;cursor:pointer;background:#000}
+.video img{width:100%;height:100%;object-fit:cover;display:block}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video:hover .play{background:rgba(163,69,43,.92)}
+.video:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+.video .play{position:absolute;left:50%;top:50%;width:88px;height:88px;margin:-44px 0 0 -44px;border-radius:50%;background:rgba(18,56,71,.88);display:grid;place-items:center}
+.vlink{margin-top:12px;font-size:14.5px;color:var(--ink2)}
+.vlink a{color:var(--accent);text-underline-offset:3px}
+.slide.dark{background:var(--accent-d);color:#F2F0EA}
+.slide.dark .lab{color:#9CC3CF}
+.dense{font-size:17px;line-height:1.45;color:var(--ink2)}
+.small{font-size:15.5px;line-height:1.4;color:var(--ink2)}
+.rq{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:13px 0;border-top:1px solid var(--rule);align-items:baseline}
+.rq:last-child{border-bottom:1px solid var(--rule)}
+.rq dt{font:650 17.5px/1.3 var(--sans);color:var(--accent-d)}
+.rq dd{margin:0;font-size:17px;line-height:1.42;color:var(--ink2)}
+.fig-n{font:600 30px/1 var(--serif);color:var(--rust);font-variant-numeric:lining-nums}
+.fig-n.ac{color:var(--accent)}
+/* data rows: a figure with its reading */
+.dr{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:baseline;padding:12px 0;border-top:1px solid var(--rule)}
+.dr:last-child{border-bottom:1px solid var(--rule)}
+.dr p{font-size:17px;line-height:1.42;color:var(--ink2)}
+.dr p b{color:var(--ink);font-weight:650}
+/* simple bars */
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:var(--lw,200px) 1fr 64px;align-items:center;gap:14px}
+.bar .l{font-size:15.5px;line-height:1.2;text-align:right;color:var(--ink)}
+.bar .tr{height:26px;background:var(--panel);border-radius:2px;position:relative}
+.bar .f{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--accent)}
+.bar .f.r{background:var(--rust)} .bar .f.g{background:var(--gold)} .bar .f.s{background:#A9A396}
+.bar .v{font:600 19px/1 var(--serif);font-variant-numeric:tabular-nums lining-nums}
+table.tb{border-collapse:collapse;width:100%}
+table.tb th{font:700 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:0 10px 10px;border-bottom:1.5px solid var(--ink)}
+table.tb td{font-size:16.5px;line-height:1.35;padding:10px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink2)}
+table.tb td:first-child{font-weight:650;color:var(--ink)}
+table.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+/* activity slides */
+.act{padding:64px 96px}
+.act .q{font:500 33px/1.3 var(--serif);padding:24px 0;border-top:1px solid #2F5868;text-wrap:pretty}
+.act .q:first-of-type{border-top:0;padding-top:0}
+.act .meta{font-size:15px;color:#9CC3CF;margin-top:6px}
+/* section transition */
+.part{padding:0;flex-direction:row}
+.part .side{width:470px;background:var(--accent-d);color:#F2F0EA;padding:0 52px;display:flex;flex-direction:column;justify-content:center}
+.part h1{font:500 46px/1.08 var(--serif);letter-spacing:-.015em;margin:14px 0 26px;text-wrap:balance}
+.part .side p{font-size:17px;line-height:1.5;color:#BFD3D9}
+.part .pic{flex:1;background-size:cover;background-position:center;position:relative}
+.credit{position:absolute;left:14px;bottom:12px;font-size:12.5px;color:#fff;background:rgba(14,20,23,.72);padding:3px 8px;border-radius:2px}
+.part::after{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<main class="deck" id="deck">
+
+<!-- 1 Title -->
+<section class="frame"><div data-n class="slide dark ph" style="padding:0;flex-direction:row">
+  <div style="flex:1;padding:0 72px 0 96px;display:flex;flex-direction:column;justify-content:center">
+    <h1 style="font:500 60px/1.05 var(--serif);letter-spacing:-.02em;margin:0 0 22px;text-wrap:balance">The teaching profession under pressure</h1>
+    <p style="font:italic 400 26px/1.3 var(--serif);color:#BFD3D9;margin-bottom:46px">Global challenges and the case of England</p>
+    <div style="display:flex;gap:28px;align-items:center;font-size:20px">
+      <span style="font-weight:600">Dr Wonyong Park</span>
+      <span style="width:1px;height:22px;background:#5E8796"></span>
+      <span style="color:#BFD3D9">EDUC1033 Week 9</span>
+    </div>
+  </div>
+  <div style="width:470px;background:url({{IMG:ph_title}}) center/cover;position:relative;filter:saturate(.75)">
+    <span class="credit">Dobrislava, Wikimedia Commons, CC BY-SA 4.0</span>
+  </div>
+  <aside class="notes">Today's question is whether teaching is a profession in crisis. We look at international evidence first, then spend most of the session on England. Keep in mind the difference between joining teaching and staying in it.</aside>
+</div></section>
+
+<!-- 2 Outline -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Session outline</h1>
+  <ol style="list-style:none;margin:18px 0 0;padding:0">
+    <li style="display:grid;grid-template-columns:84px 1fr;align-items:baseline;padding:22px 0;border-top:1px solid var(--rule)"><span class="num" style="font-size:44px">1</span><span style="font-size:27px;line-height:1.3">What would count as a crisis in teacher supply?</span></li>
+    <li style="display:grid;grid-template-columns:84px 1fr;align-items:baseline;padding:22px 0;border-top:1px solid var(--rule)"><span class="num" style="font-size:44px">2</span><span style="font-size:27px;line-height:1.3">International evidence on teachers' work</span></li>
+    <li style="display:grid;grid-template-columns:84px 1fr;align-items:baseline;padding:22px 0;border-top:1px solid var(--rule)"><span class="num" style="font-size:44px">3</span><span style="font-size:27px;line-height:1.3">England: recruitment, retention, workload and pay</span></li>
+    <li style="display:grid;grid-template-columns:84px 1fr;align-items:baseline;padding:22px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)"><span class="num" style="font-size:44px">4</span><span style="font-size:27px;line-height:1.3">Policy responses and a summary of the evidence</span></li>
+  </ol>
+  <aside class="notes">By the end of the session students should be able to distinguish recruitment, retention, attrition and shortage; use the job demands–resources framework; read England's evidence on recruitment, shortages, retention, workload and pay with its limits; and describe current policy responses.</aside>
+</div></section>
+
+<!-- 3 Activity 1 -->
+<section class="frame"><div data-n class="slide dark act">
+  <div class="lab" style="font-size:15px">Activity 1 · in pairs, 3 minutes</div>
+  <div style="margin-top:44px">
+    <p class="q">Name one reason someone might want to become a teacher.</p>
+    <p class="q" data-s="1">Name one condition that would help them stay in teaching for ten years.</p>
+    <p class="q" data-s="2">Are your two answers about the same thing?</p>
+  </div>
+  <p class="meta mt-auto">Keep your answers: we come back to them at the end.</p>
+  <aside class="notes">Collect a few answers. Reasons to join are often about purpose (working with young people, the subject); conditions for staying are often about working conditions (workload, leadership, pay, flexibility). This difference runs through the session.</aside>
+</div></section>
+
+<!-- 4 Crisis -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">What would count as a crisis in teacher supply?</h1>
+  <p class="lead">"Crisis" suggests a serious problem that existing arrangements are failing to manage. In discussions of teaching, the word can refer to several connected but different problems.</p>
+  <dl style="margin:0" class="lg">
+    <div class="rq"><dt>Recruitment</dt><dd>Too few people apply to train, start training or enter teaching posts.</dd></div>
+    <div class="rq"><dt>Retention</dt><dd>Too many teachers leave a school, the state-funded sector or the occupation.</dd></div>
+    <div class="rq"><dt>Matching</dt><dd>Teachers are not available in particular subjects or places, such as physics or some regions.</dd></div>
+    <div class="rq"><dt>Working conditions</dt><dd>Teachers in post find the work difficult to sustain.</dd></div>
+  </dl>
+  <div class="band mt-auto" data-s="1">An education system can improve on one of these measures while continuing to struggle on another.</div>
+  <p class="src">Report section 1.</p>
+  <aside class="notes">Ask which of these a newspaper headline usually means. The report suggests that a convincing claim specifies the problem, the population affected and the period of comparison.</aside>
+</div></section>
+
+<!-- 5 Pipeline -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Teacher supply works like a pipeline</h1>
+  <svg viewBox="0 0 1152 118" width="1152" height="118" aria-label="Pipeline from application to staying in post" role="img" style="margin:2px 0 18px;flex:none">
+    <g font-family="Public Sans, sans-serif" text-anchor="middle">
+      <g fill="#ECE9E1"><rect x="0" y="14" width="168" height="56" rx="3"/><rect x="196" y="14" width="168" height="56" rx="3"/><rect x="392" y="14" width="168" height="56" rx="3"/><rect x="588" y="14" width="168" height="56" rx="3"/><rect x="784" y="14" width="168" height="56" rx="3"/></g>
+      <rect x="980" y="14" width="172" height="56" rx="3" fill="#1D5266"/>
+      <g font-size="17" font-weight="650" fill="#1B2328"><text x="84" y="48">Apply</text><text x="280" y="48">Accept offer</text><text x="476" y="48">Start training</text><text x="672" y="48">Gain QTS</text><text x="868" y="48">Enter a post</text></g>
+      <text x="1066" y="48" font-size="17" font-weight="650" fill="#fff">Stay and develop</text>
+      <g fill="none" stroke="#1D5266" stroke-width="2"><path d="M172 42h18m-6-5 6 5-6 5"/><path d="M368 42h18m-6-5 6 5-6 5"/><path d="M564 42h18m-6-5 6 5-6 5"/><path d="M760 42h18m-6-5 6 5-6 5"/><path d="M956 42h18m-6-5 6 5-6 5"/></g>
+      <g stroke="#A3452B" stroke-width="1.5" fill="none"><path d="M84 72v18"/><path d="M280 72v18"/><path d="M476 72v18"/><path d="M672 72v18"/><path d="M868 72v18"/><path d="M1066 72v18"/></g>
+      <g font-size="13.5" fill="#7E321E"><text x="84" y="108">withdraw</text><text x="280" y="108">decline</text><text x="476" y="108">leave course</text><text x="672" y="108">do not qualify</text><text x="868" y="108">do not enter</text><text x="1066" y="108">leave later</text></g>
+    </g>
+  </svg>
+  <div class="cards3 grow">
+    <div class="card"><h2 style="margin-top:0">Targets describe flow</h2><p>A training target concerns the expected flow of future teachers, not the number already in schools. Returners and teachers from other sectors also add to supply.</p></div>
+    <div class="card"><h2 style="margin-top:0">Where "leaving" is drawn</h2><p>Moving school leaves an employer, not the system. Moving to an independent school leaves the state-funded sector but not teaching. A career break may end in return.</p></div>
+    <div class="card"><h2 style="margin-top:0">Totals and specialisms</h2><p>Extra trainees in one subject cannot fill vacancies in another. Schools may use non-specialists or temporary staff, which vacancy counts do not fully show.</p></div>
+  </div>
+  <p class="src">Long &amp; Bridges (2026), section 2; Worth &amp; Scott (2026), pp. 10–17; report section 1.</p>
+  <aside class="notes">Losses can happen at every stage, so a rise in applications is not the same as a rise in teachers in classrooms. The third card matters later: national averages can sit alongside subject or local shortages.</aside>
+</div></section>
+
+<!-- 6 Terms -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Key terms used in the evidence</h1>
+  <div class="row" style="gap:48px;flex:1;min-height:0">
+    <dl style="margin:0;flex:1.25">
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Recruitment</dt><dd>Bringing people into training or teaching posts</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Retention</dt><dd>Remaining in a specified school, sector or occupation</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Attrition</dt><dd>Leaving the population that a study follows</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Shortage</dt><dd>A gap between the teachers needed and those available</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>FTE</dt><dd>Full-time equivalent: two half-time teachers equal one FTE</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Cohort</dt><dd>A group followed from a shared starting point, such as the year of qualifying</dd></div>
+      <div class="rq" style="grid-template-columns:170px 1fr;padding:10px 0"><dt>Percentage point</dt><dd>20% to 25% is a rise of 5 percentage points, or a 25% proportional increase</dd></div>
+    </dl>
+    <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+      <p style="font:600 22px/1.3 var(--serif);color:var(--accent-d)">Four questions to ask of any statistic</p>
+      <ul class="b">
+        <li><b>Population:</b> who exactly is counted?</li>
+        <li><b>Question:</b> what was asked or measured?</li>
+        <li><b>Comparison:</b> compared with what, and when?</li>
+        <li><b>Uncertainty:</b> sample size, response bias, or a forecast?</li>
+      </ul>
+      <div class="note mt-auto">It also helps to check whether a result describes a <b>level</b> at one time, a <b>change</b> over time, or a <b>relationship</b> between two variables.</div>
+    </div>
+  </div>
+  <p class="src">Report, "Key terms" and section 4.</p>
+  <aside class="notes">Percentage points matter later for mentoring and recruitment figures. The four questions are the reading habit we practise on each chart today.</aside>
+</div></section>
+
+<!-- 7 Part: international -->
+<section class="frame"><div data-n class="slide part">
+  <div class="side">
+    <h1>International evidence on teachers' work</h1>
+    <p>UNESCO's estimate of global teacher need, and the OECD's TALIS 2024 survey of teachers' working lives.</p>
+  </div>
+  <div class="pic" style="background-image:url({{IMG:ph_global}})"><span class="credit">A classroom in Japan · Darklanlan, Wikimedia Commons, CC0</span></div>
+  <aside class="notes">Two kinds of evidence: a projection of need from UNESCO, and survey evidence from the OECD about how serving teachers experience their work.</aside>
+</div></section>
+
+<!-- 8 UNESCO -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">UNESCO estimates that 44 million more teachers are needed by 2030</h1>
+  <p class="lead">The estimate covers the additional primary and secondary teachers needed to achieve universal education at these levels. Around 15 million of them are in sub-Saharan Africa.</p>
+  <div style="flex:none;margin:6px 0 30px">
+    <div style="display:flex;height:46px;border-radius:3px;overflow:hidden">
+      <div style="width:34.1%;background:var(--rust);color:#fff;display:flex;align-items:center;padding-left:16px;font:600 17px var(--sans)">Sub-Saharan Africa · ~15m</div>
+      <div style="flex:1;background:var(--accent);color:#fff;display:flex;align-items:center;padding-left:16px;font:600 17px var(--sans)">Rest of the world · ~29m</div>
+    </div>
+    <p class="cap">Additional teachers needed by 2030, total 44 million</p>
+  </div>
+  <div class="row" style="gap:40px">
+    <div style="flex:1"><p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:8px">Expansion</p><p class="dense">More children need places in school, or the pupil population is growing. This need exists even if every teacher stays.</p></div>
+    <div style="flex:1"><p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:8px">Replacement</p><p class="dense">Teachers retire, change occupation or leave. A system with falling pupil numbers can still face shortages if departures are high.</p></div>
+    <div style="flex:1"><p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:8px">Distribution</p><p class="dense">International recruitment moves teachers between systems. Its effects depend on conditions in both the sending and receiving countries.</p></div>
+  </div>
+  <div class="note mt-auto">This is a <b>projection of future need</b>, not a count of current vacancies.</div>
+  <p class="src">UNESCO &amp; International Task Force on Teachers for Education 2030 (2024), <i>Global report on teachers</i>.</p>
+  <aside class="notes">The global total brings together very different situations: some systems need to expand access, others have extensive provision but find it hard to retain teachers in some subjects or places. A filled post is also not the same as a suitably qualified and supported teacher.</aside>
+</div></section>
+
+<!-- 9 JD-R -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">The OECD links job demands and resources to teachers' outcomes</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:640px;height:420px;flex:none"><img src="{{IMG:fig_jdr}}" alt="OECD TALIS 2024 conceptual model: job demands, job resources and personal resources lead to professional outcomes"></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+      <p class="dense"><b style="color:var(--rust-d)">Job demands</b> require sustained effort: workload, accountability, pupil behaviour, diverse learning needs and change.</p>
+      <p class="dense"><b style="color:var(--accent)">Job resources</b> help teachers meet those demands: professional learning, support from leaders and colleagues, autonomy and terms of employment.</p>
+      <p class="dense">The model connects these to <b style="color:var(--ink)">wellbeing, satisfaction and career intentions</b>, including how long teachers expect to stay.</p>
+      <div class="note mt-auto">The OECD presents this as a <b>conceptual framework</b>. The arrows show expected relationships, not measured causal effects.</div>
+    </div>
+  </div>
+  <p class="src">OECD (2025), <i>Results from TALIS 2024</i>, Figure 1, p. 24, after Bakker &amp; Demerouti (2017) and Granziera et al. (2020). © OECD, CC BY 4.0.</p>
+  <aside class="notes">Example from the report: planning a lesson for pupils with diverse needs takes time and expertise. With a specialist colleague, materials and protected time it is manageable; without them it may extend into evenings. The framework points to staffing, time, leadership and rules as well as individual qualities.</aside>
+</div></section>
+
+<!-- 10 TALIS -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">TALIS 2024: what the survey covers</h1>
+  <p class="lead">The OECD's Teaching and Learning International Survey asks teachers and school leaders about their work. Its main comparisons are of <b>lower secondary</b> teachers. Results were published in 2025.</p>
+  <dl style="margin:0" class="lg">
+    <div class="rq"><dt>Self-report</dt><dd>Responses describe teachers' reported experiences, such as support, workload and stress. They are not direct observations of classrooms or working hours.</dd></div>
+    <div class="rq"><dt>OECD average</dt><dd>The arithmetic average of participating OECD systems with data. It is not weighted by the number of teachers, and the set of systems can differ between indicators.</dd></div>
+    <div class="rq"><dt>Association</dt><dd>The survey shows relationships between variables. The OECD states that its design does not establish causal relationships.</dd></div>
+    <div class="rq"><dt>England</dt><dd>England took part in TALIS 2018 but <b style="color:var(--ink)">not in TALIS 2024</b>. Evidence on England in this session comes from DfE statistics, the Working Lives survey and NFER.</dd></div>
+  </dl>
+  <p class="src">OECD (2025), Reader's Guide; OECD TALIS participation lists.</p>
+  <aside class="notes">A common error is to quote TALIS 2024 figures as if they described England. Another is to treat the OECD average as a world average.</aside>
+</div></section>
+
+<!-- 11 Hours -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Reported working hours differ widely between systems</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:640px;height:516px;flex:none"><img src="{{IMG:fig_hours}}" alt="OECD Figure 3.2: change in teachers' total working hours 2018 to 2024 by system"></div>
+    <div style="flex:1">
+      <div class="dr"><span class="fig-n">~55 h</span><p><b>Japan</b> reports the highest weekly hours, after a statistically significant fall since 2018.</p></div>
+      <div class="dr"><span class="fig-n ac">~41 h</span><p>The <b>OECD average-25</b> (read from the chart).</p></div>
+      <div class="dr"><span class="fig-n ac">43%</span><p>Share of reported task time spent on <b>classroom teaching</b>, OECD average.</p></div>
+      <p class="dense" style="margin-top:16px">Changes since 2018 go in both directions: hours rose in Korea, Lithuania and Brazil, and fell in Japan and Kazakhstan.</p>
+    </div>
+  </div>
+  <p class="src">OECD (2025), Figure 3.2, p. 108; pp. 108–109. Full-time lower secondary teachers, TALIS 2018 and 2024. © OECD, CC BY 4.0.</p>
+  <aside class="notes">Reading the comet chart: the tail is 2018, the head is 2024. Blue is a significant increase, orange a significant decrease, white no significant change. Asterisks mark a higher risk of non-response bias. The 43% uses task-specific estimates, which can differ from teachers' estimates of total weekly hours.</aside>
+</div></section>
+
+<!-- 12 Satisfaction -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Most teachers report job satisfaction, and some report high stress</h1>
+  <div class="row" style="gap:56px;flex:1;min-height:0">
+    <div style="width:430px;flex:none">
+      <div class="dr" style="grid-template-columns:132px 1fr"><span class="fig-n ac" style="font-size:34px">~9 in 10</span><p>lower secondary teachers are <b>satisfied with their job</b> (OECD average)</p></div>
+      <div class="dr" style="grid-template-columns:132px 1fr"><span class="fig-n" style="font-size:34px">19%</span><p>experience <b>stress at work "a lot"</b></p></div>
+      <p class="small" style="margin-top:14px">These come from separate questions and may include the same teachers. They are not two opposing groups.</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+      <p class="dense">A teacher can value working with pupils and the purpose of teaching while finding workload, pay, leadership or accountability difficult.</p>
+      <p class="dense">TALIS asks about several aspects of wellbeing: stress, time for personal life, and effects on mental and physical health. These are self-reports, not clinical measures, and differences between countries may partly reflect how people report.</p>
+      <p class="dense">Interviews with teachers in England who had left or were considering leaving also describe valued relationships with pupils alongside pressures of the job.</p>
+    </div>
+  </div>
+  <p class="src">OECD (2025), pp. 73–76; IFF Research &amp; UCL IOE (2026).</p>
+  <aside class="notes">High satisfaction and notable stress are not contradictory. This helps explain why people who value teaching may still leave, which we see again in the English interviews and the video later.</aside>
+</div></section>
+
+<!-- 13 Mentoring -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">About one in four novice teachers has an assigned mentor</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:640px;height:516px;flex:none"><img src="{{IMG:fig_mentor}}" alt="OECD Figure 4.5: change in novice teachers' access to mentoring 2018 to 2024"></div>
+    <div style="flex:1">
+      <div class="dr"><span class="fig-n ac">~25%</span><p>of <b>novice teachers</b> (up to five years' experience) have an assigned mentor, OECD average</p></div>
+      <div class="dr"><span class="fig-n">~79%</span><p>in <b>Shanghai (China)</b>, the highest share</p></div>
+      <div class="dr"><span class="fig-n">+17 pp</span><p>increase in <b>Lithuania</b> since 2018</p></div>
+      <div class="dr"><span class="fig-n ac">55%</span><p>say professional learning had a positive impact on their teaching "quite a bit" or "a lot"</p></div>
+      <p class="small" style="margin-top:12px">The question asks about a <i>current</i> mentor, so mentoring received earlier is not captured.</p>
+    </div>
+  </div>
+  <p class="src">OECD (2025), Figure 4.5, p. 147; p. 137. © OECD, CC BY 4.0.</p>
+  <aside class="notes">Lithuania's change is reported in percentage points. Programme availability does not tell us about participation or quality, and "positive impact" is the teacher's own judgement rather than a measured effect on pupils.</aside>
+</div></section>
+
+<!-- 14 Examples -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Three international examples in the TALIS data</h1>
+  <div class="cards3 grow">
+    <div class="card r"><h2 style="margin:0 0 2px">Japan</h2><p class="small" style="margin-bottom:10px">country</p><p>Reported hours fell between 2018 and 2024 but remain the highest in TALIS. A before-and-after comparison does not show which measures produced the change.</p></div>
+    <div class="card"><h2 style="margin:0 0 2px">Shanghai</h2><p class="small" style="margin-bottom:10px">subnational system</p><p>Assigned mentoring is far more common than the OECD average. The label "mentor" can cover arrangements from scheduled meetings to sustained classroom guidance.</p></div>
+    <div class="card g"><h2 style="margin:0 0 2px">Lithuania</h2><p class="small" style="margin-bottom:10px">country</p><p>Access to mentoring rose substantially. The report notes questions about mentor time, mentor preparation, and whether support reached schools with staffing difficulties.</p></div>
+  </div>
+  <div class="note">Shanghai is a <b>subnational system</b>, not China as a whole. TALIS "novice teachers" (up to five years) are a different group from England's two-year <b>early career teacher</b> category.</div>
+  <p class="src">OECD (2025), pp. 29, 108, 147; report section 8.</p>
+  <aside class="notes">The report's comparative approach starts from a problem in a particular setting, asks what can be learned elsewhere, and then examines the resources and institutions needed to reproduce a feature.</aside>
+</div></section>
+
+<!-- 15 Activity 2 -->
+<section class="frame"><div data-n class="slide dark act" style="flex-direction:row;gap:48px;align-items:center">
+  <div class="plate" style="width:470px;height:380px;flex:none"><img src="{{IMG:fig_mentor}}" alt="OECD mentoring chart"></div>
+  <div style="flex:1">
+    <div class="lab" style="font-size:15px">Activity 2 · in pairs, 5 minutes</div>
+    <p style="font:500 28px/1.3 var(--serif);margin:20px 0 22px">Read the mentoring chart using the four questions.</p>
+    <ul class="b" style="font-size:19px;--dot:#E59C82">
+      <li>Who is in the chart?</li>
+      <li>What were teachers asked?</li>
+      <li>What is compared, and when?</li>
+      <li>What do the asterisks and grey markers mean?</li>
+    </ul>
+    <p data-s="1" style="font:500 22px/1.35 var(--serif);color:#F3E1D9;margin-top:26px;padding-top:20px;border-top:1px solid #2F5868">What else would you need to know before using Shanghai as a model for England?</p>
+  </div>
+  <aside class="notes">Population: novice lower secondary teachers (up to five years) in participating systems; England is not included. Question: whether they currently have an assigned mentor. Comparison: 2018 (tail) and 2024 (head), against the OECD average-25. Uncertainty: asterisks mark higher risk of non-response bias; grey markers mean the change was not statistically significant. Further information: mentor preparation, mentor time, what mentoring involves, staffing, and Shanghai's subnational context.</aside>
+</div></section>
+
+<!-- 16 Part: England -->
+<section class="frame"><div data-n class="slide part">
+  <div class="side">
+    <h1>England: recruitment, retention, workload and pay</h1>
+    <p>DfE statistics, NFER's annual labour market report, and the Working Lives of Teachers and Leaders survey.</p>
+  </div>
+  <div class="pic" style="background-image:url({{IMG:ph_england}});filter:sepia(.2)"><span class="credit">Albany Senior School, Enfield, 1943 · Ministry of Information, public domain</span></div>
+  <aside class="notes">England is the main case. Several headline indicators have improved recently, while subject shortfalls, losses over teachers' careers and concerns about workload continue.</aside>
+</div></section>
+
+<!-- 17 System -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">How England's system is organised</h1>
+  <div class="cards3 grow">
+    <div class="card"><h2 style="margin-top:0">England, not the UK</h2><p>Education is devolved. England, Scotland, Wales and Northern Ireland differ on qualifications, training routes and early career support.</p><p style="margin-top:10px"><b style="color:var(--ink)">State-funded schools</b> include maintained schools and academies. Independent schools and further education colleges are counted differently.</p></div>
+    <div class="card r"><h2 style="margin-top:0">QTS and the PGCE</h2><p><b style="color:var(--ink)">Qualified teacher status</b> is a professional status for meeting the Teachers' Standards. A <b style="color:var(--ink)">PGCE</b> is an academic award.</p><p style="margin-top:10px">An undergraduate Education degree does not automatically award QTS.</p></div>
+    <div class="card g"><h2 style="margin-top:0">Headcount and FTE</h2><p>Headcount counts people; FTE counts full-time posts. A teacher moving to part-time work reduces FTE without leaving.</p><p style="margin-top:10px">Primary pupil numbers are falling, while secondary and special schools follow different patterns.</p></div>
+  </div>
+  <div class="note">Two reports can appear to disagree when they cover <b>different populations, units or dates</b>.</div>
+  <p class="src">Long &amp; Bridges (2026); DfE, <i>Get Into Teaching</i>; Worth &amp; Scott (2026), pp. 4, 8–10.</p>
+  <aside class="notes">Relevant to students on this programme: a BA in Education alone does not give QTS. The FTE point matters for the 6,500 pledge later.</aside>
+</div></section>
+
+<!-- 18 Routes -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Routes into teaching in England</h1>
+  <div class="row" style="gap:44px;flex:1;min-height:0">
+    <table class="tb" style="flex:1.2;width:auto;align-self:flex-start">
+      <tr><th style="width:250px">Route</th><th>In brief</th></tr>
+      <tr><td>Undergraduate ITT</td><td>A degree combined with professional preparation and QTS</td></tr>
+      <tr><td>Teacher degree apprenticeship</td><td>An employed route with degree-level training</td></tr>
+      <tr><td>Postgraduate, fee-funded</td><td>For graduates; often QTS with a PGCE</td></tr>
+      <tr><td>Postgraduate, salaried</td><td>Training while employed by a school</td></tr>
+      <tr><td>Assessment-only</td><td>For experienced teachers without QTS</td></tr>
+      <tr><td>Overseas-trained</td><td>Recognition routes, subject to criteria</td></tr>
+    </table>
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div><p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:6px">Partnership</p><p class="dense">Schools provide practice and mentoring. Universities contribute research, subject knowledge, educational study and academic awards. Many routes involve both.</p></div>
+      <div><p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:6px">After QTS</p><p class="dense">Early career teachers (ECTs) receive a two-year induction. The Early Career Teacher Entitlement, introduced from September 2025, links to the ITT and Early Career Framework.</p></div>
+      <div class="note mt-auto" style="margin-bottom:24px">Fees, salary, personal circumstances and placement location affect which route is possible for an applicant.</div>
+    </div>
+  </div>
+  <p class="src">Long &amp; Bridges (2026), sections 2.1 and 3.2; DfE, <i>Get Into Teaching</i>.</p>
+  <aside class="notes">The report notes that the implementation of early career support depends on time for both the new teacher and their mentor.</aside>
+</div></section>
+
+<!-- 19 Ellis & Childs -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">A critical perspective on teacher education</h1>
+  <div class="row" style="gap:44px;flex:1;min-height:0;margin-bottom:24px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+      <p class="lead" style="margin:0">In <i>Teacher Education in Crisis</i>, Ellis and Childs (2024) argue that reforms in England intensified central control over training providers and constrained the contribution of universities.</p>
+      <p class="dense">Their account is informed by the experiences of teacher educators. The report presents it as one scholarly interpretation, to be read alongside the stated aims of policy documents.</p>
+      <p class="dense">It connects teacher supply to a wider question: how practical competence, knowledge of subjects and pupils, and professional judgement fit together in teacher preparation, and who decides.</p>
+    </div>
+    <div class="photo" style="width:430px;flex:none;position:relative"><img src="{{IMG:ph_old}}" alt="Historical photograph of a teacher at a blackboard" style="height:100%;filter:sepia(.3)"><span class="credit">Fortepan 3612, Wikimedia Commons, public domain</span></div>
+  </div>
+  <p class="src">Ellis &amp; Childs (2024), "Introducing the crisis", in V. Ellis (Ed.), <i>Teacher Education in Crisis</i>, pp. 1–26.</p>
+  <aside class="notes">Here "crisis" refers to control over teacher preparation, which is a different use of the word from recruitment headlines.</aside>
+</div></section>
+
+<!-- 20 ITT trend -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Recruitment to postgraduate training rose in 2025/26</h1>
+  <div class="row" style="gap:40px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:560px;height:480px;flex:none"><img src="{{IMG:fig_itt}}" alt="NFER chart: postgraduate ITT recruitment vs target 2019/20 to 2025/26, primary 128%, secondary 89%"></div>
+    <div style="flex:1">
+      <div class="dr"><span class="fig-n" style="color:#8E4A9E">128%</span><p><b>Primary</b> recruitment as a share of target, 2025/26</p></div>
+      <div class="dr"><span class="fig-n" style="color:#3F7FB5">89%</span><p><b>Secondary</b> recruitment as a share of target, 2025/26</p></div>
+      <div class="dr"><span class="fig-n ac">&lt;50%</span><p>Secondary in 2023/24, the lowest point in the period (read from the chart)</p></div>
+      <p class="dense" style="margin-top:16px">NFER links the improvement partly to weaker job opportunities for graduates elsewhere.</p>
+      <p class="small" style="margin-top:12px">These are NFER's March 2026 figures. The February 2026 Commons briefing reports different percentages, so the two sources should not be combined.</p>
+    </div>
+  </div>
+  <p class="src">Worth &amp; Scott (2026), NFER, p. 10, using DfE ITT Census data.</p>
+  <aside class="notes">Before reading this as improvement in supply, look at what the percentage is a percentage of. That is the next slide.</aside>
+</div></section>
+
+<!-- 21 Targets -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Both the number of recruits and the target changed</h1>
+  <div class="row" style="gap:56px;flex:1;min-height:0">
+    <div style="flex:1.2">
+      <p style="font:600 20px/1.3 var(--serif);color:var(--accent-d);margin-bottom:16px">Secondary postgraduate ITT, rounded figures</p>
+      <p class="lab" style="margin:0 0 10px">2024/25</p>
+      <div class="bars" style="--lw:110px">
+        <div class="bar"><span class="l">Target</span><span class="tr"><span class="f s" style="width:100%"></span></span><span class="v">24,000</span></div>
+        <div class="bar"><span class="l">Recruits</span><span class="tr"><span class="f" style="width:62.5%"></span></span><span class="v">15,000</span></div>
+      </div>
+      <p class="lab" style="margin:26px 0 10px">2025/26</p>
+      <div class="bars" style="--lw:110px">
+        <div class="bar"><span class="l">Target</span><span class="tr"><span class="f s" style="width:80%"></span></span><span class="v">19,000</span></div>
+        <div class="bar"><span class="l">Recruits</span><span class="tr"><span class="f r" style="width:70.8%"></span></span><span class="v">17,000</span></div>
+      </div>
+      <p class="cap" style="margin-top:12px">Targets: "nearly 24,000" and "a little over 19,000". Recruits: "around 15,000" and "around 17,000".</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+      <p class="dense">Recruits rose by about <b style="color:var(--ink)">2,000</b>. The target fell by about <b style="color:var(--ink)">5,000</b>. Both changes raised the percentage of target met.</p>
+      <p class="dense">A target is an estimate of future need. It rests on assumptions about pupil numbers, retention, returners and other sources of teachers.</p>
+      <div class="note mt-auto" style="margin-bottom:24px">The percentage of target met cannot, on its own, show how much of the change came from more entrants and how much from a lower estimated requirement.</div>
+    </div>
+  </div>
+  <p class="src">Worth &amp; Scott (2026), p. 10; report section 11.</p>
+  <aside class="notes">This is an example of the comparison question from the toolkit: the benchmark itself moved between years.</aside>
+</div></section>
+
+<!-- 22 Subjects -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Recruitment against target varies widely by subject</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:660px;height:516px;flex:none"><img src="{{IMG:fig_subject}}" alt="2025/26 secondary postgraduate ITT recruitment vs target by subject"></div>
+    <div style="flex:1">
+      <p class="dense" style="margin-bottom:12px">Nine of eighteen secondary subjects were below target in 2025/26.</p>
+      <table class="tb">
+        <tr><th>Subject</th><th>% of target</th></tr>
+        <tr><td>Business studies</td><td class="n">30%</td></tr>
+        <tr><td>Music</td><td class="n">65%</td></tr>
+        <tr><td>Physics</td><td class="n">78%</td></tr>
+        <tr><td>Computing</td><td class="n">81%</td></tr>
+        <tr><td>Mathematics</td><td class="n">114%</td></tr>
+        <tr><td>Physical education</td><td class="n">204%</td></tr>
+      </table>
+      <p class="small" style="margin-top:14px">Each subject has its own target. 204% means 104% above target, not a rise on the previous year.</p>
+    </div>
+  </div>
+  <p class="src">NFER analysis of DfE ITT Census 2025/26; Worth &amp; Scott (2026), p. 11.</p>
+  <aside class="notes">Subject expertise limits substitution: additional PE trainees cannot fill physics vacancies. NFER finds an association between stronger recent recruitment and a higher share of teaching by subject specialists, while acknowledging other influences.</aside>
+</div></section>
+
+<!-- 23 Forecast -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">NFER's forecast for 2026/27 shows changes by subject</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:660px;height:516px;flex:none"><img src="{{IMG:fig_forecast}}" alt="ITT recruitment vs target: 2025/26 actual vs 2026/27 forecast by subject"></div>
+    <div style="flex:1">
+      <table class="tb">
+        <tr><th>Subject</th><th>2025/26</th><th>2026/27 forecast</th></tr>
+        <tr><td>Secondary overall</td><td class="n">89%</td><td class="n">~86%</td></tr>
+        <tr><td>Physics</td><td class="n">78%</td><td class="n">~93%</td></tr>
+        <tr><td>Computing</td><td class="n">81%</td><td class="n">~99%</td></tr>
+        <tr><td>Biology</td><td class="n">153%</td><td class="n">~70%</td></tr>
+        <tr><td>Geography</td><td class="n">112%</td><td class="n">~74%</td></tr>
+        <tr><td>Music</td><td class="n">65%</td><td class="n">~49%</td></tr>
+      </table>
+      <p class="small" style="margin-top:14px">Forecasts use application data up to February 2026 and are not outcomes. Forecast values are read from the chart.</p>
+    </div>
+  </div>
+  <p class="src">NFER analysis of DfE ITT Census and Apply data to February 2026 (Worth &amp; Scott, 2026).</p>
+  <aside class="notes">Some subjects move a long way between years, for example biology. Forecasts reflect the information available when NFER published.</aside>
+</div></section>
+
+<!-- 24 Retention -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">About two in three teachers from the 2020 cohort remained after five years</h1>
+  <div class="row" style="gap:56px;flex:1;min-height:0">
+    <div style="width:470px;flex:none">
+      <div class="dr" style="grid-template-columns:120px 1fr"><span class="fig-n ac">89.7%</span><p>of teachers who <b>qualified in 2024</b> were in England's state-funded schools <b>one year later</b></p></div>
+      <div class="dr" style="grid-template-columns:120px 1fr"><span class="fig-n">67.4%</span><p>of the <b>2020 cohort</b> were there <b>five years after</b> qualifying</p></div>
+      <p class="small" style="margin-top:14px">These are different cohorts. They should not be read as one group falling from 89.7% to 67.4%. The DfE notes that the pandemic complicates comparisons between periods.</p>
+    </div>
+    <div style="flex:1">
+      <ul class="b">
+        <li><b>Cohort retention and annual exit rates</b> answer different questions. One describes how much of a starting group remains; the other describes departures in a single year.</li>
+        <li><b>Leaving the measured sector is not the same as leaving teaching.</b> Teachers may move to another UK nation, an independent school, another education role or a career break, and some return.</li>
+        <li><b>Experience carries knowledge</b> of subjects, pupils and school routines. The report notes that departures can also affect colleagues who take on mentoring or extra classes.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="src">DfE (2026a), <i>School workforce in England: reporting year 2025</i> (June 2026); Long &amp; Bridges (2026), section 2.4.</p>
+  <aside class="notes">Precise wording helps: "left England's state-funded schools" rather than "quit teaching". Administrative data show who is present, not why someone is absent.</aside>
+</div></section>
+
+<!-- 25 Workload England -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Reported hours have fallen slightly, and more teachers find workload acceptable</h1>
+  <div class="row" style="gap:56px;flex:1;min-height:0">
+    <div style="flex:1.15">
+      <p style="font:600 19px/1.3 var(--serif);color:var(--accent-d);margin-bottom:12px">Hours in the most recent full term-time week</p>
+      <div class="bars" style="--lw:205px">
+        <div class="bar"><span class="l">Full-time leaders, 2025</span><span class="tr"><span class="f r" style="width:94%"></span></span><span class="v">56.5</span></div>
+        <div class="bar"><span class="l">Full-time teachers, 2024</span><span class="tr"><span class="f s" style="width:85.3%"></span></span><span class="v">51.2</span></div>
+        <div class="bar"><span class="l">Full-time teachers, 2025</span><span class="tr"><span class="f" style="width:83.5%"></span></span><span class="v">50.1</span></div>
+      </div>
+      <p class="cap">Working Lives survey, Wave 4, January–May 2025; 10,808 teachers and leaders</p>
+      <p style="font:600 19px/1.3 var(--serif);color:var(--accent-d);margin:24px 0 12px">Labour Force Survey estimate, 2024/25</p>
+      <div class="bars" style="--lw:205px">
+        <div class="bar"><span class="l">Full-time teachers</span><span class="tr"><span class="f g" style="width:74%"></span></span><span class="v">44.4</span></div>
+        <div class="bar"><span class="l">Similar graduates</span><span class="tr"><span class="f s" style="width:67.3%"></span></span><span class="v">40.4</span></div>
+      </div>
+      <p class="cap">Lower estimates than the Working Lives survey, with a similar recent downward trend</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column">
+      <p style="font:600 19px/1.3 var(--serif);color:var(--accent-d);margin-bottom:14px">"My workload is acceptable": teachers and leaders</p>
+      <svg viewBox="0 0 440 220" width="440" height="220" role="img" aria-label="Workload acceptable: 17% in 2022, 22% in 2024, 26% in 2025">
+        <g font-family="Public Sans, sans-serif">
+          <line x1="0" y1="190" x2="440" y2="190" stroke="#1B2328" stroke-width="1.5"/>
+          <rect x="40" y="122" width="88" height="68" fill="#A9A396"/><rect x="176" y="102" width="88" height="88" fill="#A9A396"/><rect x="312" y="86" width="88" height="104" fill="#1D5266"/>
+          <g font-family="Newsreader, serif" font-weight="600" font-size="24" text-anchor="middle"><text x="84" y="112" fill="#4A555B">17%</text><text x="220" y="92" fill="#4A555B">22%</text><text x="356" y="76" fill="#1D5266">26%</text></g>
+          <g font-size="15" text-anchor="middle" fill="#4A555B"><text x="84" y="212">2022</text><text x="220" y="212">2024</text><text x="356" y="212">2025</text></g>
+        </g>
+      </svg>
+      <p class="dense" style="margin-top:16px">About three in four teachers and leaders did not agree that their workload was acceptable in 2025.</p>
+      <p class="small mt-auto" style="margin-bottom:24px">The 26% covers teachers and leaders together; the 50.1 hours covers full-time teachers only.</p>
+    </div>
+  </div>
+  <p class="src">IFF Research &amp; UCL IOE (2025), <i>Working lives of teachers and leaders: Wave 4</i>, pp. 6–8; Worth &amp; Scott (2026), p. 20.</p>
+  <aside class="notes">The two surveys give different hours because they ask different questions in different ways. On both measures teachers report longer hours than comparable graduates. The report suggests reviewing tasks as well as hours: what purpose a task serves, how its output is used, and who should do it.</aside>
+</div></section>
+
+<!-- 26 Leavers -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Leavers most often cite workload and stress</h1>
+  <div class="row" style="gap:40px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:420px;height:530px;flex:none;padding:10px"><img src="{{IMG:fig_leavers}}" alt="DfE Working Lives Figure 11.1: proportion of leavers citing reasons for leaving, 2023 to 2025"></div>
+    <div style="flex:1">
+      <p style="font:600 19px/1.3 var(--serif);color:var(--accent-d);margin-bottom:12px">2025 leavers (n = 461) rating each factor important</p>
+      <div class="bars" style="--lw:250px">
+        <div class="bar"><span class="l">High workload</span><span class="tr"><span class="f r" style="width:74%"></span></span><span class="v">74%</span></div>
+        <div class="bar"><span class="l">Stress or poor wellbeing</span><span class="tr"><span class="f r" style="width:73%"></span></span><span class="v">73%</span></div>
+        <div class="bar"><span class="l">Views not valued by policymakers</span><span class="tr"><span class="f" style="width:59%"></span></span><span class="v">59%</span></div>
+        <div class="bar"><span class="l">Pupil outcomes or inspection pressure</span><span class="tr"><span class="f" style="width:53%"></span></span><span class="v">53%</span></div>
+        <div class="bar"><span class="l">Lack of flexible working</span><span class="tr"><span class="f g" style="width:42%"></span></span><span class="v">42%</span></div>
+        <div class="bar"><span class="l">Dissatisfaction with pay</span><span class="tr"><span class="f g" style="width:25%"></span></span><span class="v">25%</span></div>
+      </div>
+      <p class="dense" style="margin-top:18px">Since 2023, fewer leavers cite inspection pressure (69% to 53%), government initiatives (55% to 35%) and pay (39% to 25%).</p>
+      <p class="small" style="margin-top:12px">Each factor was rated separately, so percentages overlap and should not be added. The leaver group includes retirees.</p>
+    </div>
+  </div>
+  <p class="src">IFF Research &amp; UCL IOE (2025), Figure 11.1, p. 36; pp. 35–36. Crown copyright, Open Government Licence v3.0.</p>
+  <aside class="notes">These are reports from people who had already left, not estimates for all serving teachers. The chart identifies overlapping influences but cannot isolate the effect of each one. The 25% citing pay is not the share who would have stayed after a pay increase.</aside>
+</div></section>
+
+<!-- 27 Considering -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Teachers considering leaving cite many of the same factors</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:680px;height:470px;flex:none"><img src="{{IMG:fig_drivers}}" alt="Drivers for leaving or considering leaving the state sector, WLTL Wave 4 2025"></div>
+    <div style="flex:1">
+      <table class="tb">
+        <tr><th>Factor</th><th>Considering</th><th>Left</th></tr>
+        <tr><td>Stress, wellbeing</td><td class="n">89%</td><td class="n">73%</td></tr>
+        <tr><td>High workload</td><td class="n">89%</td><td class="n">74%</td></tr>
+        <tr><td>School funding</td><td class="n">76%</td><td class="n">54%</td></tr>
+        <tr><td>Staff shortages</td><td class="n">60%</td><td class="n">43%</td></tr>
+        <tr><td>Pay</td><td class="n">49%</td><td class="n">25%</td></tr>
+      </table>
+      <p class="small" style="margin-top:14px">Leavers more often cite lack of support from superiors (48% vs 42%) and bullying (29% vs 20%). The two groups differ: one is still in post, the other has left and includes retirees.</p>
+    </div>
+  </div>
+  <p class="src">DfE Working Lives of Teachers and Leaders (WLTL) Wave 4 survey (2025).</p>
+  <aside class="notes">Intentions to leave are not the same as departures. Those considering leaving are describing current conditions; leavers describe a decision already made.</aside>
+</div></section>
+
+<!-- 28 Video -->
+<section class="frame"><div data-n class="slide" style="padding-top:40px">
+  <h1 class="t" style="margin-bottom:18px">A teacher's account of workload</h1>
+  <div class="row" style="gap:36px;flex:1;min-height:0;margin-bottom:22px">
+    <div style="width:740px;flex:none">
+      <div class="video" data-yt="jNUZKdQ1PEQ" role="button" tabindex="0" aria-label="Play video" style="width:740px;height:416px">
+        <img src="{{IMG:yt_workload}}" alt="Video: Confessions of a Teacher – Workload (BBC Teach)">
+        <span class="play" aria-hidden="true"><svg width="30" height="34" viewBox="0 0 30 34"><path d="M3 2 28 17 3 32Z" fill="#fff"/></svg></span>
+      </div>
+      <p class="vlink"><a href="https://www.youtube.com/watch?v=jNUZKdQ1PEQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=jNUZKdQ1PEQ</a> · BBC Teach, <i>Confessions of a Teacher: Workload</i></p>
+    </div>
+    <div style="flex:1;padding-top:4px">
+      <p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:14px">Recurring themes in interviews with leavers</p>
+      <ul class="b" style="font-size:17.5px">
+        <li>Enjoyment of classroom teaching and relationships with pupils</li>
+        <li>Administrative demands and limited support</li>
+        <li>Difficulty keeping boundaries around work</li>
+        <li>Less autonomy, and a gap between what teachers valued and how the job had developed</li>
+      </ul>
+      <p class="small" style="margin-top:16px">60 interviews in autumn 2025 with teachers and leaders who had left or were considering leaving.</p>
+    </div>
+  </div>
+  <p class="src">IFF Research &amp; UCL IOE (2026), <i>Qualitative insight into experiences of leavers and those considering leaving</i>, pp. 5–7. Crown copyright, OGL v3.0.</p>
+  <aside class="notes">The interview study: 35 who had left and 25 considering leaving; retirement and parental leave excluded; those considering leaving were selected for low satisfaction. Interviews show how pressures build up over time; they do not show how common an experience is.</aside>
+</div></section>
+
+<!-- 29 Activity 3 -->
+<section class="frame"><div data-n class="slide dark act">
+  <div class="lab" style="font-size:15px">Activity 3 · in small groups, 6 minutes</div>
+  <div style="margin-top:40px">
+    <p class="q">What did the teacher in the video describe about their workload?</p>
+    <p class="q" data-s="1">Which parts of their account match the survey and interview evidence we have seen?</p>
+    <p class="q" data-s="2">What can one personal account tell us, and what can it not tell us?</p>
+  </div>
+  <aside class="notes">Link the account to the job demands–resources framework (demands rising, resources such as time and support) and to the Working Lives figures (74% of leavers citing workload; 26% finding workload acceptable). A single account shows how pressures are experienced and connected; surveys show how widespread they are.</aside>
+</div></section>
+
+<!-- 30 Pay -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Starting salaries have returned to their 2010/11 real level; experienced teachers' pay has not</h1>
+  <div class="row" style="gap:40px;flex:1;min-height:0;margin-bottom:22px">
+    <div class="plate" style="width:540px;height:470px;flex:none"><img src="{{IMG:fig_pay}}" alt="NFER chart: real earnings growth since 2010/11 for starting salaries, experienced teachers and average UK earnings"></div>
+    <div style="flex:1">
+      <div class="dr" style="grid-template-columns:110px 1fr"><span class="fig-n" style="color:#8E4A9E">+0.4%</span><p><b>Starting salaries</b>, real terms, 2025/26 vs 2010/11</p></div>
+      <div class="dr" style="grid-template-columns:110px 1fr"><span class="fig-n" style="color:#3F7FB5">−8.6%</span><p><b>Experienced teachers</b> (top of the upper pay scale), after a low of −13.5% in 2022/23</p></div>
+      <div class="dr" style="grid-template-columns:110px 1fr"><span class="fig-n" style="color:#C2185B">+6.0%</span><p><b>Average UK earnings</b> over the same period</p></div>
+      <p class="dense" style="margin-top:16px"><b style="color:var(--ink)">Real pay</b> adjusts for prices. <b style="color:var(--ink)">Relative pay</b> compares teaching with other jobs open to graduates. The dotted line is an OBR projection from March 2026.</p>
+    </div>
+  </div>
+  <p class="src">Worth &amp; Scott (2026), p. 18. Sources: School Teachers' Pay and Conditions Document; Office for Budget Responsibility.</p>
+  <aside class="notes">Recent recovery has been concentrated in starting salaries. NFER analyses pay alongside working conditions and the wider graduate labour market.</aside>
+</div></section>
+
+<!-- 31 Part: policy -->
+<section class="frame"><div data-n class="slide part">
+  <div class="side">
+    <h1>Policy responses</h1>
+    <p>The Department for Education's 6,500 additional teachers delivery plan, and a summary of the evidence.</p>
+  </div>
+  <div class="pic" style="background-image:url({{IMG:ph_policy}})"><span class="credit">Julian Herzog, Wikimedia Commons, CC BY 4.0</span></div>
+  <aside class="notes">Policy documents set out intentions and government interpretations. The report reads them alongside independent analysis and evidence from teachers.</aside>
+</div></section>
+
+<!-- 32 Pledge -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">The pledge of 6,500 additional teachers</h1>
+  <div style="flex:none;margin-bottom:28px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+      <span class="dense">Additional FTE against the 2023/24 baseline, DfE 2025 workforce release</span>
+      <span style="font:600 30px/1 var(--serif);color:var(--accent)">4,654 <span style="font-size:20px;color:var(--ink2)">of 6,500</span></span>
+    </div>
+    <div style="height:30px;background:var(--panel);border-radius:2px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:71.6%;background:var(--accent);border-radius:2px"></div></div>
+  </div>
+  <dl style="margin:0" class="lg">
+    <div class="rq"><dt>What is counted</dt><dd>A <b style="color:var(--ink)">net increase in FTE</b> compared with 2023/24, by the end of this Parliament.</dd></div>
+    <div class="rq"><dt>Which settings</dt><dd>Mainstream secondary schools, special schools and further education colleges. <b style="color:var(--ink)">Primary schools are not included</b> in this count.</dd></div>
+    <div class="rq"><dt>What affects it</dt><dd>New entrants, departures and changes in working hours all change net FTE, so recruiting 6,500 trainees would not by itself meet the pledge.</dd></div>
+    <div class="rq"><dt>Reading the update</dt><dd>The 4,654 figure is an intermediate observation. The report notes that it differs from change across all state-funded school teachers, and that increases can have several causes.</dd></div>
+  </dl>
+  <p class="src">DfE (2026b), <i>6,500 additional teachers delivery plan</i>, pp. 4–7; DfE (2026a).</p>
+  <aside class="notes">This slide uses the measurement points from the start of the session: FTE rather than headcount, the scope of the population, and the difference between an indicator changing and a policy causing the change.</aside>
+</div></section>
+
+<!-- 33 Plan -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">The delivery plan groups action under attract, retain and develop</h1>
+  <div class="cards3 grow">
+    <div class="card r"><h2 style="margin-top:0">Attract</h2><p class="small" style="margin-bottom:12px">Entry into teaching</p><ul class="b" style="font-size:17px;color:var(--ink2);--dot:var(--rust)"><li>Financial incentives for trainees</li><li>Training routes</li><li>Support for applicants and returners</li></ul></div>
+    <div class="card"><h2 style="margin-top:0">Retain</h2><p class="small" style="margin-bottom:12px">Staying in teaching</p><ul class="b" style="font-size:17px;color:var(--ink2)"><li>Pay and workload</li><li>Flexible working, such as part-time roles and some non-teaching tasks off site</li><li>Targeted incentives for subjects or settings</li></ul></div>
+    <div class="card g"><h2 style="margin-top:0">Develop</h2><p class="small" style="margin-bottom:12px">Growing expertise</p><ul class="b" style="font-size:17px;color:var(--ink2);--dot:var(--gold)"><li>Early career support</li><li>Professional learning</li><li>Routes into specialist and leadership roles</li></ul></div>
+  </div>
+  <div class="note">The report notes that effects depend on implementation: whether candidates can access support, whether schools and providers have capacity, and whether mentors and mentees have time.</div>
+  <p class="src">DfE (2026b), pp. 10–18; report section 18.</p>
+  <aside class="notes">Different measures address different stages of a teaching career. Mentoring also creates work for experienced colleagues, which links back to the TALIS examples.</aside>
+</div></section>
+
+<!-- 34 Activity 4 -->
+<section class="frame"><div data-n class="slide dark act">
+  <div class="lab" style="font-size:15px">Activity 4 · in small groups, 8 minutes</div>
+  <p style="font:500 34px/1.3 var(--serif);margin:36px 0 44px">Choose two of these priorities. For each, explain which problem it addresses and find one piece of evidence from today that relates to it.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+    <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 25px/1.35 var(--serif)">Financial support for entry into training</p></div>
+    <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 25px/1.35 var(--serif)">Competitive pay</p></div>
+    <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 25px/1.35 var(--serif)">Protected mentoring and professional learning</p></div>
+    <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 25px/1.35 var(--serif)">Reduced administration and more flexibility</p></div>
+  </div>
+  <p class="meta mt-auto">The options do not cost the same. Note one difficulty in putting each choice into practice.</p>
+  <aside class="notes">This follows the classroom exercise in report section 19. Examples of relevant evidence: experienced teachers' real pay at −8.6% against 2010/11; 25% of leavers citing pay; 74% citing workload; 26% finding workload acceptable; about 25% of novice teachers internationally with an assigned mentor.</aside>
+</div></section>
+
+<!-- 35 Summary -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Summary of the evidence on England</h1>
+  <div class="row" style="gap:48px;flex:1;min-height:0">
+    <div style="flex:1">
+      <p style="font:600 22px/1.3 var(--serif);color:var(--accent);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--accent)">Indicators that have improved</p>
+      <ul class="b" style="font-size:19.5px">
+        <li>Postgraduate ITT recruitment: primary 128%, secondary 89% of target in 2025/26</li>
+        <li>Full-time teachers' reported hours: 51.2 to 50.1</li>
+        <li>Workload rated acceptable: 17% (2022) to 26% (2025)</li>
+        <li>Starting salaries back to their 2010/11 real level</li>
+        <li>4,654 additional FTE towards the 6,500 pledge</li>
+      </ul>
+    </div>
+    <div style="flex:1">
+      <p style="font:600 22px/1.3 var(--serif);color:var(--rust);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--rust)">Pressures that continue</p>
+      <ul class="b" style="font-size:19.5px;--dot:var(--rust)">
+        <li>Subjects below target, e.g. business studies 30%, physics 78%, computing 81%</li>
+        <li>67.4% of the 2020 cohort in state-funded schools after five years</li>
+        <li>About three in four do not find workload acceptable</li>
+        <li>Experienced teachers' real pay 8.6% below 2010/11</li>
+        <li>74% of leavers cite workload; 73% cite stress</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band mt-auto" style="margin-top:20px">The report describes the evidence as supporting a qualified assessment: the picture differs between subjects, schools and career stages.</div>
+  <p class="src">Report sections 11–20; sources as on previous slides.</p>
+  <aside class="notes">The report's overall conclusion is that recruitment and retention need to be understood together, and that both improvement and continuing pressure should be described precisely.</aside>
+</div></section>
+
+<!-- 36 Closing -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t">Back to joining and staying</h1>
+  <div class="row" style="gap:56px;flex:1;min-height:0">
+    <div style="flex:1.1">
+      <p class="lead">Return to your answers from Activity 1. Write two or three sentences that:</p>
+      <ol style="list-style:none;margin:0;padding:0">
+        <li style="display:grid;grid-template-columns:52px 1fr;padding:16px 0;border-top:1px solid var(--rule);align-items:baseline"><span class="num" style="font-size:28px">1</span><p style="font-size:19px;line-height:1.42">connect one reason to join with one condition to stay</p></li>
+        <li style="display:grid;grid-template-columns:52px 1fr;padding:16px 0;border-top:1px solid var(--rule);align-items:baseline"><span class="num" style="font-size:28px">2</span><p style="font-size:19px;line-height:1.42">use one finding from today, naming its population and date</p></li>
+        <li style="display:grid;grid-template-columns:52px 1fr;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);align-items:baseline"><span class="num" style="font-size:28px">3</span><p style="font-size:19px;line-height:1.42">say what the evidence can and cannot establish</p></li>
+      </ol>
+    </div>
+    <div style="flex:1">
+      <p style="font:600 21px/1.3 var(--serif);color:var(--accent-d);margin-bottom:14px">Further reading</p>
+      <ul class="b" style="font-size:18.5px">
+        <li>Worth &amp; Scott (2026), NFER annual report, pp. 10–24</li>
+        <li>OECD (2025), TALIS 2024, executive summary, pp. 28–30</li>
+        <li>IFF Research &amp; UCL IOE (2025), Working Lives Wave 4, pp. 32–38</li>
+        <li>Ellis &amp; Childs (2024), pp. 1–26</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">This mirrors the final task in the report and can be used as an exit ticket.</aside>
+</div></section>
+
+<!-- 37 References -->
+<section class="frame"><div data-n class="slide">
+  <h1 class="t" style="font-size:32px">References</h1>
+  <div class="row" style="gap:48px;font-size:16.5px;line-height:1.5;color:var(--ink2)">
+    <div style="flex:1;display:grid;gap:14px;align-content:start">
+      <p>Department for Education. (2026a). <i>School workforce in England: Reporting year 2025</i>. Explore Education Statistics.</p>
+      <p>Department for Education. (2026b). <i>6,500 additional teachers delivery plan</i>. GOV.UK.</p>
+      <p>Department for Education. (n.d.). <i>How to become a teacher</i>. Get Into Teaching. Retrieved 11 November 2026.</p>
+      <p>Ellis, V., &amp; Childs, A. (2024). Introducing the crisis: The state, the market, the universities and teacher education in England. In V. Ellis (Ed.), <i>Teacher education in crisis</i> (pp. 1–26). Bloomsbury Academic.</p>
+      <p>IFF Research &amp; UCL Institute of Education. (2025). <i>Working lives of teachers and leaders: Wave 4 summary report</i>. DfE.</p>
+      <p>IFF Research &amp; UCL Institute of Education. (2026). <i>Working lives of teachers and leaders: Qualitative insight into experiences of leavers and those considering leaving the English state school sector</i>. DfE.</p>
+    </div>
+    <div style="flex:1;display:grid;gap:14px;align-content:start">
+      <p>Long, R., &amp; Bridges, E. (2026, February 2). <i>Teacher recruitment and retention in England</i> (Research Briefing 07222). House of Commons Library.</p>
+      <p>OECD. (2025). <i>Results from TALIS 2024: The state of teaching</i>. OECD Publishing. https://doi.org/10.1787/90df6235-en</p>
+      <p>UNESCO &amp; International Task Force on Teachers for Education 2030. (2024). <i>Global report on teachers: Addressing teacher shortages and transforming the profession</i>. UNESCO.</p>
+      <p>Worth, J., &amp; Scott, M. (2026). <i>The school teacher labour market in England: Annual report 2026</i>. NFER.</p>
+      <p style="margin-top:6px;padding-top:10px;border-top:1px solid var(--rule);font-size:14.5px">Video: BBC Teach, <i>Confessions of a Teacher: Workload</i>, YouTube. Images, Wikimedia Commons: Dobrislava (CC BY-SA 4.0); Darklanlan (CC0); Ministry of Information Photo Division (public domain); Fortepan 3612 (public domain); Julian Herzog (CC BY 4.0). OECD figures CC BY 4.0; DfE figures Crown copyright, OGL v3.0; NFER chart extracts reproduced for teaching.</p>
+    </div>
+  </div>
+  <aside class="notes">Full URLs and reading guidance are in the Week 9 report.</aside>
+</div></section>
+
+</main>
+<div class="nav" role="group" aria-label="Slide controls">
+  <button type="button" id="nprev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="sp" id="npos" aria-live="polite"></span>
+  <button type="button" id="ngrid" aria-label="Slide overview"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></svg></button>
+  <button type="button" id="nnext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="hint">→ / Space / click: next · ← back · F full screen · O overview · S speaker notes · move the mouse for controls</div>
+<div id="spk" aria-live="polite"><b>Speaker notes</b><div id="spkt"></div></div>
+<script>
+(function(){
+  var root=document.documentElement, deck=document.getElementById('deck');
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  var hint=document.querySelector('.hint'), spk=document.getElementById('spk'), spkt=document.getElementById('spkt');
+  frames.forEach(function(f){var m=0;f.querySelectorAll('[data-s]').forEach(function(el){m=Math.max(m,+el.getAttribute('data-s'));});f._max=m;f._n=0;});
+  function show(f,n){f._n=n;f.querySelectorAll('[data-s]').forEach(function(el){el.classList.toggle('on',+el.getAttribute('data-s')<=n);});}
+
+  var present=true, idx=0;
+  function fit(){
+    var s=present?Math.min(innerWidth/1280,innerHeight/720):Math.max(.16,Math.min(.24,(innerWidth-120)/(1280*4.4)));
+    root.style.setProperty('--s',s);
+  }
+  function setPresent(p){
+    present=p; root.classList.toggle('present',p); root.classList.toggle('ov',!p); fit();
+    if(!p){stopVideos();frames.forEach(function(f){show(f,f._max);f.classList.remove('cur');});frames[idx].classList.add('cur');frames[idx].scrollIntoView({block:'center'});}
+    else{frames.forEach(function(f){f.classList.remove('cur');});goto(idx,false);}
+    updNav();
+  }
+  function notes(){var a=frames[idx].querySelector('.notes');spkt.textContent=a?a.textContent:'';}
+  function goto(i,full){
+    i=Math.max(0,Math.min(frames.length-1,i));
+    stopVideos(frames[idx]);
+    frames[idx].classList.remove('cur');
+    idx=i; var f=frames[idx];
+    show(f,full?f._max:0);
+    f.classList.add('cur');
+    if(history.replaceState)history.replaceState(null,'','#'+(idx+1));
+    notes(); updNav();
+  }
+
+  function stopVideos(f){(f||document).querySelectorAll('.video iframe').forEach(function(ifr){ifr.remove();});}
+  function playVideo(v){
+    if(v.querySelector('iframe'))return;
+    var ifr=document.createElement('iframe');
+    ifr.src='https://www.youtube-nocookie.com/embed/'+v.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+    ifr.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    ifr.allowFullscreen=true;
+    ifr.referrerPolicy='strict-origin-when-cross-origin';
+    ifr.title='YouTube video';
+    v.appendChild(ifr);
+  }
+  document.querySelectorAll('.video').forEach(function(v){
+    v.addEventListener('click',function(ev){ev.stopPropagation();playVideo(v);});
+    v.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();ev.stopPropagation();playVideo(v);}});
+  });
+  addEventListener('blur',function(){setTimeout(function(){var a=document.activeElement;if(a&&a.tagName==='IFRAME'){a.blur();window.focus();}},400);});
+  function next(){var f=frames[idx];if(f._n<f._max)show(f,f._n+1);else if(idx<frames.length-1)goto(idx+1,false);updNav();}
+  function prev(){var f=frames[idx];if(f._n>0)show(f,f._n-1);else if(idx>0)goto(idx-1,true);updNav();}
+  var npos=document.getElementById('npos'),nprev=document.getElementById('nprev'),nnext=document.getElementById('nnext');
+  function updNav(){
+    var f=frames[idx];
+    npos.textContent=(idx+1)+' / '+frames.length;
+    nprev.disabled=present&&idx===0&&f._n===0;
+    nnext.disabled=present&&idx===frames.length-1&&f._n>=f._max;
+  }
+  function btn(id,fn){document.getElementById(id).addEventListener('click',function(ev){ev.stopPropagation();fn();this.blur();});}
+  btn('nprev',function(){if(!present)setPresent(true);else prev();});
+  btn('nnext',function(){if(!present)setPresent(true);else next();});
+  btn('ngrid',function(){setPresent(!present);});
+
+  addEventListener('keydown',function(ev){
+    if(ev.altKey||ev.ctrlKey||ev.metaKey)return;
+    var k=ev.key;
+    if(k==='o'||k==='O'||k==='Escape'&&!document.fullscreenElement&&present===false){setPresent(!present);return;}
+    if(k==='f'||k==='F'){if(!document.fullscreenElement){root.requestFullscreen&&root.requestFullscreen();}else{document.exitFullscreen();}return;}
+    if(k==='s'||k==='S'){spk.classList.toggle('on');return;}
+    if(!present)return;
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '||k==='Enter'||k==='n'||k==='N'){ev.preventDefault();next();}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'||k==='p'||k==='P'){ev.preventDefault();prev();}
+    else if(k==='Home'){ev.preventDefault();goto(0,false);}
+    else if(k==='End'){ev.preventDefault();goto(frames.length-1,true);}
+    else if(k==='a'||k==='A'){show(frames[idx],frames[idx]._max);}
+  });
+  deck.addEventListener('click',function(ev){
+    if(ev.target.closest('a')||ev.target.closest('.video'))return;
+    if(!present){var f=ev.target.closest('.frame');if(f){frames[idx].classList.remove('cur');idx=frames.indexOf(f);setPresent(true);}return;}
+    if(ev.clientX<innerWidth*0.15)prev();else next();
+  });
+  var lastWheel=0;
+  addEventListener('wheel',function(ev){
+    if(!present||ev.target.closest('#spk'))return; ev.preventDefault();
+    var now=Date.now(); if(now-lastWheel<450||Math.abs(ev.deltaY)<12)return; lastWheel=now;
+    if(ev.deltaY>0)next();else prev();
+  },{passive:false});
+  var tx=null;
+  addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  addEventListener('touchend',function(e){if(tx===null||!present)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
+  var idleT;
+  function wake(){root.classList.remove('idle');root.classList.add('navshow');clearTimeout(idleT);idleT=setTimeout(function(){root.classList.add('idle');root.classList.remove('navshow');},2200);}
+  addEventListener('mousemove',wake);
+  setTimeout(function(){hint.classList.add('off');},4000);
+
+  addEventListener('resize',fit);
+  addEventListener('beforeprint',function(){root.style.setProperty('--s',1);frames.forEach(function(f){show(f,f._max);});});
+  addEventListener('afterprint',function(){fit();if(present)show(frames[idx],frames[idx]._n);});
+
+  var start=parseInt((location.hash||'').slice(1),10);
+  idx=(start>0&&start<=frames.length)?start-1:0;
+  root.classList.add('present'); fit(); frames[idx].classList.add('cur'); show(frames[idx],0); notes(); updNav();
+  if(history.replaceState)history.replaceState(null,'','#'+(idx+1));
+})();
+</script>
+</body>
+</html>

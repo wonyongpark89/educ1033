@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "w9/src/deck.html"
+        ],
+        "createdAt": "2026-11-12T11:01:22.832Z",
+        "reason": "Palette #F6F5F0 is the user's existing EDUC3028 deck paper colour, pinned in the brief"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "w9/src/deck.html"
+        ],
+        "createdAt": "2026-11-12T11:01:23.220Z",
+        "reason": "Full-bleed photo/title slides use padding:0 intentionally, as in the user's reference deck"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "w9/src/deck.html"
+        ],
+        "createdAt": "2026-11-12T11:01:32.433Z",
+        "reason": "User's own established deck style (wonyongpark.com/educ3028-w8 .card border-top:3px), pinned in the brief"
+      }
+    ]
+  }
+}
