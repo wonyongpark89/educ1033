@@ -28,7 +28,8 @@ def inline_img(m):
 def inline_icon(m):
     svg = (src / 'icons' / (m.group(1) + '.svg')).read_text(encoding='utf-8')
     svg = re.sub(r'<!--.*?-->', '', svg, flags=re.S)
-    svg = re.sub(r'\s*(class|width|height)="[^"]*"', '', svg)
+    # strip size and class from the <svg> root only; <rect> needs its own width/height
+    svg = re.sub(r'<svg[^>]*>', lambda t: re.sub(r'\s*(class|width|height)="[^"]*"', '', t.group(0)), svg, count=1)
     svg = re.sub(r'\s+', ' ', svg).strip().replace('<svg ', '<svg aria-hidden="true" ', 1)
     return svg.replace(' />', '/>').replace('> <', '><')
 

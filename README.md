@@ -5,6 +5,7 @@ Slide decks for EDUC1033, served with GitHub Pages.
 | Week | Topic | Lecture | Seminar |
 |---|---|---|---|
 | 9 | The teaching profession under pressure | [slides](https://www.wonyongpark.com/educ1033/w9/lecture/) · [PDF](w9/EDUC1033-W9-Lecture-slides.pdf) | [slides](https://www.wonyongpark.com/educ1033/w9/seminar/) · [PDF](w9/EDUC1033-W9-Seminar-slides.pdf) |
+| 10 | Health and safety education | [slides](https://www.wonyongpark.com/educ1033/w10/lecture/) · [PDF](w10/EDUC1033-W10-Lecture-slides.pdf) | [slides](https://www.wonyongpark.com/educ1033/w10/seminar/) · [PDF](w10/EDUC1033-W10-Seminar-slides.pdf) |
 
 ## Editing a deck
 

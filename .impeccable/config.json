@@ -38,6 +38,24 @@
         ],
         "createdAt": "2026-11-12T13:01:09.716Z",
         "reason": "False positive: flagged text sits on dark .slide.dark backgrounds (#123847), verified in rendered PDF; checker assumed white"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "w10/src/lecture.html"
+        ],
+        "createdAt": "2026-11-12T14:05:11.426Z",
+        "reason": "Claude: false positive - #bfd3d9 text sits on the dark .slide.dark background (#123847), and .hoc labels are white (#fff) on #3f6f80; the scanner resolved neither background nor inherited colour"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "w10/src/seminar.html"
+        ],
+        "createdAt": "2026-11-12T14:06:48.569Z",
+        "reason": "Claude: false positive - flagged light text (#BFD3D9, #F3E1D9, #E59C82) sits on the dark .slide.dark background (#123847); scanner assumed white"
       }
     ]
   }
