@@ -56,6 +56,15 @@
         ],
         "createdAt": "2026-11-12T14:06:48.569Z",
         "reason": "Claude: false positive - flagged light text (#BFD3D9, #F3E1D9, #E59C82) sits on the dark .slide.dark background (#123847); scanner assumed white"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "w10/src/_head.html"
+        ],
+        "createdAt": "2026-11-12T14:09:00.879Z",
+        "reason": "Project CLAUDE.md specifies the paper background #F6F5F0 for all EDUC1033 decks; carried over unchanged from w9/src/_head.html"
       }
     ]
   }
