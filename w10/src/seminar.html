@@ -2,17 +2,17 @@
 {{INCLUDE:_head.html}}
 <!-- S1 Title -->
 <section class="frame"><div data-n class="slide dark ph" style="padding:0;flex-direction:row">
-  <div style="flex:1;padding:0 64px 0 104px;display:flex;flex-direction:column;justify-content:center">
-    <h1 style="font:500 78px/1.02 var(--serif);letter-spacing:-.024em;margin:0 0 28px;text-wrap:balance">Health and safety education</h1>
-    <p style="font:italic 400 32px/1.3 var(--serif);color:#BFD3D9;margin-bottom:64px">Seminar: from knowing to doing</p>
-    <div style="display:flex;gap:30px;align-items:center;font-size:23px">
+  <div class="tt">
+    <h1>Health and safety education</h1>
+    <p class="sub">Seminar: from knowing to doing</p>
+    <div class="by">
       <span style="font-weight:600">Dr Wonyong Park</span>
-      <span style="width:1px;height:24px;background:#5E8796"></span>
-      <span style="color:#BFD3D9">EDUC1033 Week 10 · Seminar</span>
+      <span style="width:1px;height:26px;background:var(--dark-rule)"></span>
+      <span style="color:var(--on-dark)">EDUC1033 Week 10 · Seminar</span>
     </div>
   </div>
-  <div style="width:500px;background:url({{IMG:ph_title}}) 58% center/cover;position:relative;filter:saturate(.8)">
-    <span class="credit">School crossing patrol · Pauline E, geograph.org.uk, CC BY-SA 2.0</span>
+  <div style="width:520px;background:url({{IMG:ph_title}}) 30% 30%/cover;position:relative">
+    <span class="credit">Handwashing at a school in Ghana · Amuzujoe, Wikimedia Commons, CC BY-SA 4.0</span>
   </div>
   <aside class="notes">Plan for 50 minutes: recap (5 min), scenario and Activity 1 on COM-B (15 min), GADRRRES video (6 min), heat scenario and Activity 2 on the three pillars (20 min), close (4 min).</aside>
 </div></section>
@@ -21,7 +21,24 @@
 <section class="frame"><div data-n class="slide">
   <h1 class="t">Recap: why knowing may not change what people do</h1>
   <div class="fx">
-    <div class="plate" style="width:560px;align-self:center"><div class="chart"><img src="{{IMG:fig_comb}}" alt="Michie et al. Figure 1: the COM-B system"></div></div>
+    <div style="width:560px;flex:none;align-self:center"><svg viewBox="0 0 600 410" width="560" height="383" role="img" aria-label="COM-B model: capability, opportunity and motivation each linked to behaviour; capability and opportunity also influence motivation">
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#44514C"/></marker>
+        </defs>
+        <g fill="none" stroke="#44514C" stroke-width="3">
+          <path d="M140 92V156" marker-end="url(#ah2)"/>
+          <path d="M140 318V254" marker-end="url(#ah2)"/>
+          <path d="M258 62 L398 186" marker-start="url(#ah2)" marker-end="url(#ah2)"/>
+          <path d="M258 205 H398" marker-start="url(#ah2)" marker-end="url(#ah2)"/>
+          <path d="M258 348 L398 224" marker-start="url(#ah2)" marker-end="url(#ah2)"/>
+        </g>
+        <g font-family="Public Sans, sans-serif" font-weight="650" font-size="25" fill="#fff" text-anchor="middle">
+          <rect x="20" y="20" width="240" height="72" rx="6" fill="#22604A"/><text x="140" y="65">Capability</text>
+          <rect x="20" y="168" width="240" height="72" rx="6" fill="#8E3B5C"/><text x="140" y="213">Motivation</text>
+          <rect x="20" y="318" width="240" height="72" rx="6" fill="#9A6512"/><text x="140" y="363">Opportunity</text>
+          <rect x="400" y="168" width="180" height="72" rx="6" fill="#163F31"/><text x="490" y="213">Behaviour</text>
+        </g>
+      </svg></div>
     <div class="read">
       <dl style="margin:0" class="lg">
         <div class="rq" style="grid-template-columns:150px 1fr"><dt>Capability</dt><dd>Knowledge and practical skills</dd></div>
@@ -31,13 +48,13 @@
       <div class="note" data-s="1" style="margin-top:24px">Lessons mostly build capability. Opportunity and motivation often depend on conditions outside the lesson.</div>
     </div>
   </div>
-  <p class="src">Michie, van Stralen &amp; West (2011), Figure 1, p. 4. CC BY 2.0.</p>
+  <p class="src">Redrawn from Michie, van Stralen &amp; West (2011), <i>Implementation Science</i> 6:42, Figure 1, p. 4. CC BY 2.0.</p>
   <aside class="notes">Remind students of the meal example from the lecture: knowing how to cook (capability), access to ingredients and a kitchen (opportunity), enjoyment and habit (motivation). This model is the tool for Activity 1.</aside>
 </div></section>
 
 <!-- S3 Recap: health literacy and LifeLab -->
 <section class="frame"><div data-n class="slide">
-  <h1 class="t">Recap: health literacy and the LifeLab evidence</h1>
+  <h1 class="t">Recap: health literacy and Southampton LifeLab</h1>
   <div class="row" style="gap:60px;margin:auto 0;align-items:flex-start">
     <div style="flex:1">
       <div class="ihd" style="padding-bottom:12px;border-bottom:2px solid var(--accent);margin-bottom:4px"><span class="disc sm">{{ICON:book-open}}</span><p class="hd" style="font-size:24px;margin:0">Health literacy (Nutbeam)</p></div>
@@ -47,12 +64,12 @@
     </div>
     <div style="flex:1" data-s="1">
       <div class="ihd" style="padding-bottom:12px;border-bottom:2px solid var(--rust);margin-bottom:4px"><span class="disc sm r">{{ICON:microscope}}</span><p class="hd" style="font-size:24px;color:var(--rust-d);margin:0">Southampton LifeLab</p></div>
-      <div class="dr" style="grid-template-columns:150px 1fr"><span class="fig-n ac" style="font-size:29px">0.27 SD</span><p>gain in <b>theoretical health literacy</b> after 12 months, 38 schools</p></div>
-      <div class="dr" style="grid-template-columns:150px 1fr"><span class="fig-n" style="font-size:29px">Not shown</span><p>improvement in <b>diet or physical activity</b>, in either trial</p></div>
-      <div class="dr end" style="grid-template-columns:150px 1fr"><span class="fig-n" style="font-size:29px">Limited</span><p>pupil engagement with the <b>EACH-B app</b>; LifeLab itself was valued</p></div>
+      <div class="dr" style="grid-template-columns:150px 1fr"><span class="hd" style="margin:0;color:var(--rust-d)">Programme</span><p>teacher training, <b>eight lessons</b> in school, and a <b>day at the hospital lab</b></p></div>
+      <div class="dr" style="grid-template-columns:150px 1fr"><span class="hd" style="margin:0;color:var(--rust-d)">The day</span><p>ultrasound, DNA extraction, fitness measures, the placenta, <b>Meet the Scientist</b></p></div>
+      <div class="dr end" style="grid-template-columns:150px 1fr"><span class="hd" style="margin:0;color:var(--rust-d)">EACH-B</span><p>no demonstrated improvement in <b>diet or physical activity</b>; LifeLab valued, app little used</p></div>
     </div>
   </div>
-  <p class="src">Nutbeam (2000, 2025); Woods-Townsend et al. (2021); Barker et al. (2026); Jenner et al. (2025).</p>
+  <p class="src">Nutbeam (2000, 2025); Woods-Townsend et al. (2021), Box 1; Barker et al. (2026); Jenner et al. (2025).</p>
   <aside class="notes">The LifeLab case shows the pattern COM-B predicts: a lasting gain in understanding (capability) without measured change in behaviour. That does not make the learning worthless; it means behaviour also depends on opportunity and motivation.</aside>
 </div></section>
 
@@ -156,13 +173,13 @@
   <div class="qs">
     <p style="font:500 38px/1.28 var(--serif);margin:0 0 22px;text-wrap:pretty">Plan the school's response to repeated hot days. Give at least one action under each pillar:</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:44px">
-      <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">1 · Safer learning facilities</p></div>
-      <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">2 · Safety and continuity management</p></div>
-      <div style="border-top:2px solid #E59C82;padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">3 · Risk reduction and resilience education</p></div>
+      <div style="border-top:2px solid var(--pink-l);padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">1 · Safer learning facilities</p></div>
+      <div style="border-top:2px solid var(--pink-l);padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">2 · Safety and continuity management</p></div>
+      <div style="border-top:2px solid var(--pink-l);padding-top:18px"><p style="font:500 28px/1.3 var(--serif)">3 · Risk reduction and resilience education</p></div>
     </div>
-    <ol style="list-style:none;margin:0;padding:0;font:500 30px/1.3 var(--serif);color:#F3E1D9" data-s="1">
-      <li style="display:grid;grid-template-columns:44px 1fr;padding:6px 0"><span style="color:#E59C82">a</span>Which pupils might face extra barriers, and how does your plan reach them?</li>
-      <li style="display:grid;grid-template-columns:44px 1fr;padding:6px 0"><span style="color:#E59C82">b</span>Which actions rely on pupils' behaviour, and which change the setting?</li>
+    <ol style="list-style:none;margin:0;padding:0;font:500 30px/1.3 var(--serif);color:var(--pink-t)" data-s="1">
+      <li style="display:grid;grid-template-columns:44px 1fr;padding:6px 0"><span style="color:var(--pink-l)">a</span>Which pupils might face extra barriers, and how does your plan reach them?</li>
+      <li style="display:grid;grid-template-columns:44px 1fr;padding:6px 0"><span style="color:var(--pink-l)">b</span>Which actions rely on pupils' behaviour, and which change the setting?</li>
     </ol>
   </div>
   <aside class="notes">About 13 minutes in groups and 7 for feedback; ask each group for one action per pillar and build a shared list. Possible answers. Pillar 1: shade, blinds, ventilation, water points, moving lessons or exams out of the hottest rooms. Pillar 2: a hot-weather plan with trigger points, adjusted timetables and uniform rules, who decides and how families are told (several channels and languages). Pillar 3: lessons on heat and wellbeing, recognising symptoms, how to ask for help. Barriers: pupils with health conditions or disabilities, long journeys, families who do not use the app or read English. Question b links to the hierarchy of controls: advice to drink water relies on behaviour; water points and shade change the setting. Pupils' observations (which rooms are hottest) can inform the plan without making them responsible for it.</aside>
