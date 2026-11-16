@@ -17,18 +17,22 @@
 
   var present=true, idx=0, printing=false;
   var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  function countText(el,value){
+    var decimals=+el.getAttribute('data-count-decimals')||0;
+    return value.toLocaleString('en-GB',{minimumFractionDigits:decimals,maximumFractionDigits:decimals})+(el.getAttribute('data-count-suffix')||'');
+  }
   function finishChart(group){
     cancelAnimationFrame(group._chartRaf);
     group.querySelectorAll('[data-chart-fill]').forEach(function(el){el.style.transform='';});
-    group.querySelectorAll('[data-count-to]').forEach(function(el){el.textContent=(+el.getAttribute('data-count-to')).toLocaleString('en-GB');});
+    group.querySelectorAll('[data-count-to]').forEach(function(el){el.textContent=countText(el,+el.getAttribute('data-count-to'));});
   }
   function startChart(group){
     var fills=group.querySelectorAll('[data-chart-fill]'), counts=group.querySelectorAll('[data-count-to]');
     var started=performance.now();
     function step(now){
       var progress=Math.min(1,(now-started)/1200), eased=1-Math.pow(1-progress,3);
-      fills.forEach(function(el){el.style.transform='scaleX('+eased+')';});
-      counts.forEach(function(el){el.textContent=Math.round(+el.getAttribute('data-count-to')*eased).toLocaleString('en-GB');});
+      fills.forEach(function(el){el.style.transform=(el.getAttribute('data-chart-axis')==='y'?'scaleY(':'scaleX(')+eased+')';});
+      counts.forEach(function(el){el.textContent=countText(el,+el.getAttribute('data-count-to')*eased);});
       if(progress<1)group._chartRaf=requestAnimationFrame(step);else finishChart(group);
     }
     step(started);
