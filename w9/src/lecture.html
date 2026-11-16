@@ -162,10 +162,21 @@
 </div></section>
 
 <!-- 10 Hours -->
-<section class="frame"><div data-n class="slide">
-  <h1 class="t">Reported working hours differ widely between systems</h1>
+<section class="frame"><div data-n class="slide" style="padding-bottom:40px">
+  <h1 class="t" style="margin-bottom:18px">Reported working hours differ widely between systems</h1>
   <div class="fx">
-    <div class="plate" style="width:684px;align-self:flex-start"><div class="chart"><img src="{{IMG:fig_hours}}" alt="OECD Figure 3.2: change in teachers' total working hours 2018 to 2024 by system">
+    <div class="plate" style="width:630px;align-self:flex-start"><div class="chart"><img src="{{IMG:fig_hours}}" alt="OECD Figure 3.2: change in teachers' total working hours 2018 to 2024 by system">
+      <!-- England reference levels use a linear hours axis: 60 h at y=251; 30 h at y=662. -->
+      <svg data-s="3" viewBox="0 0 1315 1058" role="img" aria-label="Dotted England reference lines: 49.3 hours in TALIS 2018 and 50.3 hours in Working Lives 2024. Different surveys and populations." style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+        <g fill="none" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12">
+          <line x1="107" x2="1285" y1="383.89" y2="383.89" stroke="#A3452B"/>
+          <line x1="107" x2="1285" y1="397.59" y2="397.59" stroke="#1D5266"/>
+        </g>
+        <g font-family="Public Sans, sans-serif" font-size="38" font-weight="600" text-anchor="end" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" paint-order="stroke">
+          <text x="1100" y="363" fill="#A3452B">England 2024 · 50.3 h*</text>
+          <text x="1100" y="441" fill="#1D5266">England 2018 · 49.3 h</text>
+        </g>
+      </svg>
       <span class="hl" data-s="1" style="left:6.6%;top:23.2%;width:5.2%;height:9.3%"><span class="no">1</span></span>
       <span class="hl ac" data-s="2" style="left:44.1%;top:22.4%;width:3.4%;height:60.6%"><span class="no">2</span></span>
     </div></div>
@@ -173,18 +184,10 @@
       <p class="intro">Weekly hours reported by full-time lower secondary teachers. Each comet runs from 2018 (tail) to 2024 (head).</p>
       <div class="kp" data-s="1"><span class="m">1</span><p><b>Japan</b> reports around <b>55 hours a week</b>, after a significant fall since 2018.</p></div>
       <div class="kp end" data-s="2"><span class="m ac">2</span><p>The <b>OECD average</b> is about <b>41 hours a week</b>.</p></div>
-      <div class="note" data-s="3" style="margin-top:16px;padding:16px 20px">
-        <h2 class="hd" style="font-size:22px;margin-bottom:12px">England: full-time teachers</h2>
-        <div style="display:grid;grid-template-columns:112px 1fr;gap:12px 16px;align-items:center">
-          <p class="fig-n ac" style="font-size:34px">49.3 h</p><p style="font-size:18px;line-height:1.3"><b>2018 · TALIS</b><br>Lower secondary</p>
-          <p class="fig-n ac" style="font-size:34px">50.3 h</p><p style="font-size:18px;line-height:1.3"><b>2024 · Working Lives</b><br>State secondary</p>
-        </div>
-        <p style="font-size:16px;line-height:1.35;margin-top:12px">Different surveys and populations: an indicative comparison.</p>
-      </div>
     </div>
   </div>
-  <p class="src">Chart: OECD (2025), Figure 3.2, p. 108, CC BY 4.0. England 2018: <a href="https://assets.publishing.service.gov.uk/media/5f6484c2e90e075a01d2f4ce/TALIS_2018_research.pdf" target="_blank" rel="noopener">Jerrim &amp; Sims (2019), Table 3.1.1, p. 76</a>.<br>England 2024: <a href="https://assets.publishing.service.gov.uk/media/6989d70c85bc7d6ba0fbc7d7/Working_lives_of_teachers_wave_3_research_report.pdf" target="_blank" rel="noopener">IFF Research &amp; UCL IOE (2025), <i>Working lives</i>, wave 3, section 3</a>. Both figures are mean weekly working hours.</p>
-  <aside class="notes">Colour key: blue is a significant increase, orange a significant decrease, white no significant change. The OECD average of about 41 hours is read from the chart. England participated in TALIS 2018 but not TALIS 2024. TALIS 2018: full-time lower-secondary teachers in England reported a mean of 49.3 hours in their most recent complete calendar week (Jerrim and Sims, Table 3.1.1). Working Lives wave 3, surveyed in spring 2024: full-time secondary teachers in England's state schools reported 50.3 hours in their most recent full working week. The latter covers secondary teachers, rather than only lower secondary, and excludes independent schools. Sampling and survey design also differ, so the one-hour difference should not be interpreted as a measured change over time or a statistical ranking against TALIS 2024 systems. The England figures are shown separately from the OECD chart for this reason.</aside>
+  <p class="src" style="position:static;flex:none;margin-top:14px;max-width:1100px">Chart: OECD (2025), Fig. 3.2, p. 108 (CC BY 4.0). England: <a href="https://assets.publishing.service.gov.uk/media/5f6484c2e90e075a01d2f4ce/TALIS_2018_research.pdf" target="_blank" rel="noopener">Jerrim &amp; Sims (2019), Table 3.1.1</a>; <a href="https://assets.publishing.service.gov.uk/media/6989d70c85bc7d6ba0fbc7d7/Working_lives_of_teachers_wave_3_research_report.pdf" target="_blank" rel="noopener">IFF/UCL (2025), <i>Working lives</i> wave 3, §3</a>.<br>2018: full-time lower secondary. 2024*: full-time state secondary. Different surveys and populations; indicative comparison.</p>
+  <aside class="notes">Colour key: blue is a significant increase, orange a significant decrease, white no significant change. The OECD average of about 41 hours is read from the chart. England participated in TALIS 2018 but not TALIS 2024. TALIS 2018: full-time lower-secondary teachers in England reported a mean of 49.3 hours in their most recent complete calendar week (Jerrim and Sims, Table 3.1.1). Working Lives wave 3, surveyed in spring 2024: full-time secondary teachers in England's state schools reported 50.3 hours in their most recent full working week. The latter covers secondary teachers, rather than only lower secondary, and excludes independent schools. Sampling and survey design also differ, so the one-hour difference should not be interpreted as a measured change over time or a statistical ranking against TALIS 2024 systems. The dotted lines overlay the two England levels as reference points; the 2024 line is not a TALIS estimate.</aside>
 </div></section>
 
 <!-- 11 Satisfaction -->
