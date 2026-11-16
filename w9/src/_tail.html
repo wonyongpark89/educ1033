@@ -53,7 +53,7 @@
     v.addEventListener('click',function(ev){ev.stopPropagation();playVideo(v);});
     v.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();ev.stopPropagation();playVideo(v);}});
   });
-  addEventListener('blur',function(){setTimeout(function(){var a=document.activeElement;if(a&&a.tagName==='IFRAME'){a.blur();window.focus();}},400);});
+  addEventListener('blur',function(){setTimeout(function(){var a=document.activeElement;if(a&&a.tagName==='IFRAME'&&a.closest('.video')){a.blur();window.focus();}},400);});
   function next(){var f=frames[idx];if(f._n<f._max)show(f,f._n+1);else if(idx<frames.length-1)goto(idx+1,false);updNav();}
   function prev(){var f=frames[idx];if(f._n>0)show(f,f._n-1);else if(idx>0)goto(idx-1,true);updNav();}
   var npos=document.getElementById('npos'),nprev=document.getElementById('nprev'),nnext=document.getElementById('nnext');
