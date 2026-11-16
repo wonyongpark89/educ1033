@@ -13,9 +13,37 @@
   var frames=[].slice.call(document.querySelectorAll('.frame'));
   var hint=document.querySelector('.hint'), spk=document.getElementById('spk'), spkt=document.getElementById('spkt');
   frames.forEach(function(f){var m=0;f.querySelectorAll('[data-s]').forEach(function(el){m=Math.max(m,+el.getAttribute('data-s'));});f._max=m;f._n=0;});
-  function show(f,n){f._n=n;f.querySelectorAll('[data-s]').forEach(function(el){el.classList.toggle('on',+el.getAttribute('data-s')<=n);});}
+  function show(f,n){f._n=n;f.querySelectorAll('[data-s]').forEach(function(el){el.classList.toggle('on',+el.getAttribute('data-s')<=n);});syncCharts(f);}
 
-  var present=true, idx=0;
+  var present=true, idx=0, printing=false;
+  var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  function finishChart(group){
+    cancelAnimationFrame(group._chartRaf);
+    group.querySelectorAll('[data-chart-fill]').forEach(function(el){el.style.transform='';});
+    group.querySelectorAll('[data-count-to]').forEach(function(el){el.textContent=(+el.getAttribute('data-count-to')).toLocaleString('en-GB');});
+  }
+  function startChart(group){
+    var fills=group.querySelectorAll('[data-chart-fill]'), counts=group.querySelectorAll('[data-count-to]');
+    var started=performance.now();
+    function step(now){
+      var progress=Math.min(1,(now-started)/1200), eased=1-Math.pow(1-progress,3);
+      fills.forEach(function(el){el.style.transform='scaleX('+eased+')';});
+      counts.forEach(function(el){el.textContent=Math.round(+el.getAttribute('data-count-to')*eased).toLocaleString('en-GB');});
+      if(progress<1)group._chartRaf=requestAnimationFrame(step);else finishChart(group);
+    }
+    step(started);
+  }
+  function syncCharts(f){
+    f.querySelectorAll('[data-chart-animation]').forEach(function(group){
+      var visible=present&&!printing&&f.classList.contains('cur');
+      for(var parent=group;parent&&parent!==f;parent=parent.parentElement){
+        if(parent.hasAttribute('data-s')&&!parent.classList.contains('on'))visible=false;
+      }
+      if(!visible||reducedMotion.matches){finishChart(group);group._chartVisible=false;}
+      else if(!group._chartVisible){group._chartVisible=true;startChart(group);}
+    });
+  }
+  reducedMotion.addEventListener('change',function(){frames.forEach(syncCharts);});
   function fit(){
     var s=present?Math.min(innerWidth/1280,innerHeight/720):Math.max(.16,Math.min(.24,(innerWidth-120)/(1280*4.4)));
     root.style.setProperty('--s',s);
@@ -31,9 +59,11 @@
     i=Math.max(0,Math.min(frames.length-1,i));
     stopVideos(frames[idx]);
     frames[idx].classList.remove('cur');
+    syncCharts(frames[idx]);
     idx=i; var f=frames[idx];
     show(f,full?f._max:0);
     f.classList.add('cur');
+    syncCharts(f);
     if(history.replaceState)history.replaceState(null,'','#'+(idx+1));
     notes(); updNav();
   }
@@ -101,8 +131,8 @@
   setTimeout(function(){hint.classList.add('off');},4000);
 
   addEventListener('resize',fit);
-  addEventListener('beforeprint',function(){root.style.setProperty('--s',1);frames.forEach(function(f){show(f,f._max);});});
-  addEventListener('afterprint',function(){fit();if(present)show(frames[idx],frames[idx]._n);});
+  addEventListener('beforeprint',function(){printing=true;root.style.setProperty('--s',1);frames.forEach(function(f){show(f,f._max);});});
+  addEventListener('afterprint',function(){printing=false;fit();if(present)show(frames[idx],frames[idx]._n);});
 
   var start=parseInt((location.hash||'').slice(1),10);
   idx=(start>0&&start<=frames.length)?start-1:0;

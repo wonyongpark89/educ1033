@@ -57,10 +57,8 @@ a{color:inherit}
 /* incremental reveal */
 .js [data-s]{opacity:0;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
 .js [data-s].on{opacity:1}
-@media screen and (prefers-reduced-motion: no-preference){
-  .present .frame.cur .pledge-fill{transform-origin:left center;animation:pledge-fill 1.2s ease-out both}
-  @keyframes pledge-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-}
+[data-chart-fill]{transform-origin:left center}
+[data-count-to]{font-variant-numeric:tabular-nums}
 @media print{
   @page{size:1280px 720px;margin:0}
   html,body{background:var(--paper)}
@@ -313,7 +311,6 @@ table.tb th.n{text-align:right}
     <div class="rq ic"><span class="disc"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke- stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><dt>Working conditions</dt><dd>Teachers in post find the work difficult to sustain.</dd></div>
   </dl>
   <div class="band mt-auto" data-s="2">An education system can improve on one of these measures while continuing to struggle on another.</div>
-  <p class="src">Report section 1.</p>
   <aside class="notes">Ask which of these a newspaper headline usually means. The report suggests that a convincing claim names the problem, the population affected and the period of comparison.</aside>
 </div></section>
 
@@ -546,14 +543,14 @@ table.tb th.n{text-align:right}
       <p class="hd" style="margin-bottom:22px">Secondary postgraduate ITT, rounded figures</p>
       <p class="lab" style="margin:0 0 12px">2024/25</p>
       <div class="bars" style="--lw:110px;--bh:42px">
-        <div class="bar"><span class="l" style="font-size:20px">Target</span><span class="tr"><span class="f s" style="width:100%"></span></span><span class="v" style="font-size:25px">24,000</span></div>
-        <div class="bar"><span class="l" style="font-size:20px">Recruits</span><span class="tr"><span class="f" style="width:62.5%"></span></span><span class="v" style="font-size:25px">15,000</span></div>
+        <div class="bar" data-chart-animation><span class="l" style="font-size:20px">Target</span><span class="tr"><span class="f s" data-chart-fill style="width:100%"></span></span><span class="v" data-count-to="24000" style="font-size:25px">24,000</span></div>
+        <div class="bar" data-chart-animation><span class="l" style="font-size:20px">Recruits</span><span class="tr"><span class="f" data-chart-fill style="width:62.5%"></span></span><span class="v" data-count-to="15000" style="font-size:25px">15,000</span></div>
       </div>
       <div data-s="1">
         <p class="lab" style="margin:32px 0 12px">2025/26</p>
         <div class="bars" style="--lw:110px;--bh:42px">
-          <div class="bar"><span class="l" style="font-size:20px">Target</span><span class="tr"><span class="f s" style="width:80%"></span></span><span class="v" style="font-size:25px">19,000</span></div>
-          <div class="bar"><span class="l" style="font-size:20px">Recruits</span><span class="tr"><span class="f r" style="width:70.8%"></span></span><span class="v" style="font-size:25px">17,000</span></div>
+          <div class="bar" data-chart-animation><span class="l" style="font-size:20px">Target</span><span class="tr"><span class="f s" data-chart-fill style="width:80%"></span></span><span class="v" data-count-to="19000" style="font-size:25px">19,000</span></div>
+          <div class="bar" data-chart-animation><span class="l" style="font-size:20px">Recruits</span><span class="tr"><span class="f r" data-chart-fill style="width:70.8%"></span></span><span class="v" data-count-to="17000" style="font-size:25px">17,000</span></div>
         </div>
       </div>
     </div>
@@ -804,11 +801,11 @@ table.tb th.n{text-align:right}
 <section class="frame"><div data-n="31" class="slide">
   <h1 class="t">How the pledge is going, and the criticism</h1>
   <div class="row" style="gap:56px;flex:1;min-height:0;margin-bottom:8px;padding-top:14px">
-    <div style="flex:1;display:flex;flex-direction:column">
+    <div data-chart-animation style="flex:1;display:flex;flex-direction:column">
       <div class="ihd"><span class="disc sm"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke- stroke-linecap="round" stroke-linejoin="round" ><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><p class="hd" style="margin:0">Progress reported</p></div>
-      <p style="font:600 40px/1 var(--serif);color:var(--accent);margin:8px 0 6px">4,654 <span style="font-size:23px;color:var(--ink2)">of 6,500 additional FTE</span></p>
+      <p style="font:600 40px/1 var(--serif);color:var(--accent);margin:8px 0 6px"><span data-count-to="4654">4,654</span> <span style="font-size:23px;color:var(--ink2)">of 6,500 additional FTE</span></p>
       <p class="small" style="margin-bottom:12px">DfE workforce data, June 2026</p>
-      <div style="height:34px;background:var(--panel);border-radius:2px;position:relative;margin-bottom:22px"><div class="pledge-fill" style="position:absolute;left:0;top:0;bottom:0;width:71.6%;background:var(--accent);border-radius:2px"></div></div>
+      <div style="height:34px;background:var(--panel);border-radius:2px;position:relative;margin-bottom:22px"><div data-chart-fill style="position:absolute;left:0;top:0;bottom:0;width:71.6%;background:var(--accent);border-radius:2px"></div></div>
       <ul class="b">
         <li>School teacher leaver rate at <b>9%</b>, the lowest since 2010 outside the pandemic</li>
         <li>Secondary vacancies at their lowest for five years</li>
@@ -896,9 +893,37 @@ table.tb th.n{text-align:right}
   var frames=[].slice.call(document.querySelectorAll('.frame'));
   var hint=document.querySelector('.hint'), spk=document.getElementById('spk'), spkt=document.getElementById('spkt');
   frames.forEach(function(f){var m=0;f.querySelectorAll('[data-s]').forEach(function(el){m=Math.max(m,+el.getAttribute('data-s'));});f._max=m;f._n=0;});
-  function show(f,n){f._n=n;f.querySelectorAll('[data-s]').forEach(function(el){el.classList.toggle('on',+el.getAttribute('data-s')<=n);});}
+  function show(f,n){f._n=n;f.querySelectorAll('[data-s]').forEach(function(el){el.classList.toggle('on',+el.getAttribute('data-s')<=n);});syncCharts(f);}
 
-  var present=true, idx=0;
+  var present=true, idx=0, printing=false;
+  var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  function finishChart(group){
+    cancelAnimationFrame(group._chartRaf);
+    group.querySelectorAll('[data-chart-fill]').forEach(function(el){el.style.transform='';});
+    group.querySelectorAll('[data-count-to]').forEach(function(el){el.textContent=(+el.getAttribute('data-count-to')).toLocaleString('en-GB');});
+  }
+  function startChart(group){
+    var fills=group.querySelectorAll('[data-chart-fill]'), counts=group.querySelectorAll('[data-count-to]');
+    var started=performance.now();
+    function step(now){
+      var progress=Math.min(1,(now-started)/1200), eased=1-Math.pow(1-progress,3);
+      fills.forEach(function(el){el.style.transform='scaleX('+eased+')';});
+      counts.forEach(function(el){el.textContent=Math.round(+el.getAttribute('data-count-to')*eased).toLocaleString('en-GB');});
+      if(progress<1)group._chartRaf=requestAnimationFrame(step);else finishChart(group);
+    }
+    step(started);
+  }
+  function syncCharts(f){
+    f.querySelectorAll('[data-chart-animation]').forEach(function(group){
+      var visible=present&&!printing&&f.classList.contains('cur');
+      for(var parent=group;parent&&parent!==f;parent=parent.parentElement){
+        if(parent.hasAttribute('data-s')&&!parent.classList.contains('on'))visible=false;
+      }
+      if(!visible||reducedMotion.matches){finishChart(group);group._chartVisible=false;}
+      else if(!group._chartVisible){group._chartVisible=true;startChart(group);}
+    });
+  }
+  reducedMotion.addEventListener('change',function(){frames.forEach(syncCharts);});
   function fit(){
     var s=present?Math.min(innerWidth/1280,innerHeight/720):Math.max(.16,Math.min(.24,(innerWidth-120)/(1280*4.4)));
     root.style.setProperty('--s',s);
@@ -914,9 +939,11 @@ table.tb th.n{text-align:right}
     i=Math.max(0,Math.min(frames.length-1,i));
     stopVideos(frames[idx]);
     frames[idx].classList.remove('cur');
+    syncCharts(frames[idx]);
     idx=i; var f=frames[idx];
     show(f,full?f._max:0);
     f.classList.add('cur');
+    syncCharts(f);
     if(history.replaceState)history.replaceState(null,'','#'+(idx+1));
     notes(); updNav();
   }
@@ -984,8 +1011,8 @@ table.tb th.n{text-align:right}
   setTimeout(function(){hint.classList.add('off');},4000);
 
   addEventListener('resize',fit);
-  addEventListener('beforeprint',function(){root.style.setProperty('--s',1);frames.forEach(function(f){show(f,f._max);});});
-  addEventListener('afterprint',function(){fit();if(present)show(frames[idx],frames[idx]._n);});
+  addEventListener('beforeprint',function(){printing=true;root.style.setProperty('--s',1);frames.forEach(function(f){show(f,f._max);});});
+  addEventListener('afterprint',function(){printing=false;fit();if(present)show(frames[idx],frames[idx]._n);});
 
   var start=parseInt((location.hash||'').slice(1),10);
   idx=(start>0&&start<=frames.length)?start-1:0;
