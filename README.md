@@ -1,22 +1,12 @@
-# EDUC1033 lecture decks
+# EDUC1033 materials have moved
 
-Slide decks for EDUC1033, served with GitHub Pages.
+The canonical archive is [Teaching](https://www.wonyongpark.com/teaching/#educ1033).
 
-| Week | Topic | Lecture | Seminar |
-|---|---|---|---|
-| 9 | The teaching profession under pressure | [slides](https://www.wonyongpark.com/educ1033/w9/lecture/) · [PDF](w9/EDUC1033-W9-Lecture-slides.pdf) | [slides](https://www.wonyongpark.com/educ1033/w9/seminar/) · [PDF](w9/EDUC1033-W9-Seminar-slides.pdf) |
-| 10 | Health and safety education | [slides](https://www.wonyongpark.com/educ1033/w10/lecture/) · [PDF](w10/EDUC1033-W10-Lecture-slides.pdf) | [slides](https://www.wonyongpark.com/educ1033/w10/seminar/) · [PDF](w10/EDUC1033-W10-Seminar-slides.pdf) |
+The lecture decks, seminar decks, PDFs and authoring sources are now maintained in [wonyongpark89.github.io/teaching/educ1033](https://github.com/wonyongpark89/wonyongpark89.github.io/tree/main/teaching/educ1033).
 
-## Editing a deck
+| Week | Lecture | Seminar |
+|---|---|---|
+| 9 | [HTML](https://www.wonyongpark.com/teaching/educ1033/w9/lecture/) · [PDF](https://www.wonyongpark.com/teaching/educ1033/w9/EDUC1033-W9-Lecture-slides.pdf) | [HTML](https://www.wonyongpark.com/teaching/educ1033/w9/seminar/) · [PDF](https://www.wonyongpark.com/teaching/educ1033/w9/EDUC1033-W9-Seminar-slides.pdf) |
+| 10 | [HTML](https://www.wonyongpark.com/teaching/educ1033/w10/lecture/) · [PDF](https://www.wonyongpark.com/teaching/educ1033/w10/EDUC1033-W10-Lecture-slides.pdf) | [HTML](https://www.wonyongpark.com/teaching/educ1033/w10/seminar/) · [PDF](https://www.wonyongpark.com/teaching/educ1033/w10/EDUC1033-W10-Seminar-slides.pdf) |
 
-Each week has a lecture and a seminar deck. Sources live in `<week>/src/lecture.html` and
-`<week>/src/seminar.html`; shared head, styles and script are in `<week>/src/_head.html` and
-`_tail.html`, images in `src/img/` and icons in `src/icons/`. Build the self-contained decks
-(images and icons inlined, slides numbered) into `<week>/lecture/` and `<week>/seminar/` with:
-
-```
-python tools/build.py w9            # both decks
-python tools/build.py w9 seminar    # one deck
-```
-
-In the deck: arrow keys, Space or click to move; F full screen; O overview; S speaker notes.
+This repository retains its history and source files for reference. Its old HTML entry points redirect to the new locations, and previously shared PDF URLs remain available. Make future changes in the main website repository, rather than here.
